@@ -9,7 +9,8 @@ import { ThemedView } from '@/components/ThemedView';
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#7D26CD', dark: '#1D3D47' }}
+      style={styles.container}  
+      headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
       headerImage={
         <Image
           source={require('@/assets/images/freaky.png')}
@@ -51,6 +52,10 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#121212',  
+    flex: 1,
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
