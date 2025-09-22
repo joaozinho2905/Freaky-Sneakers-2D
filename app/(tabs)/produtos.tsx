@@ -21,7 +21,7 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Tênis</ThemedText>
         <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">Nike, Adias</ThemedText> to see changes.
+          Edit <ThemedText type="defaultSemiBold">Nike,Puma </ThemedText> to see changes.
           Press{' '}
           <ThemedText type="defaultSemiBold">
             {Platform.select({
