@@ -1,6 +1,5 @@
 import { Image } from 'expo-image';
 import { Platform, StyleSheet } from 'react-native';
-
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -11,42 +10,62 @@ export default function HomeScreen() {
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#7D26CD', dark: '#1D3D47' }}
       headerImage={
-        <Image
-          source={require('@/assets/images/freaky.png')}
-          style={styles.reactLogo}
-        />
-      }>
+        <Image source={require('@/assets/images/freaky.png')} style={styles.reactLogo} />
+      }
+    >
       <ThemedView style={styles.titleContainer}>
+        {/* Pode adicionar título aqui se quiser */}
       </ThemedView>
+
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Tênis</ThemedText>
+        <ThemedText type="subtitle">Tênis em Destaque</ThemedText>
         <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">Nike,Puma </ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
+          Confira nossos modelos Nike e Puma com os melhores preços e qualidade.
         </ThemedText>
       </ThemedView>
+
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+        <ThemedText type="subtitle">Nike Air Max 90</ThemedText>
         <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
+          R$ 299,00 - Clássico com conforto para o dia a dia.
         </ThemedText>
       </ThemedView>
+
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
+        <ThemedText type="subtitle">Adidas Ultraboost 21</ThemedText>
         <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+          R$ 349,00 - Ideal para corrida, com amortecimento responsivo.
+        </ThemedText>
+      </ThemedView>
+
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Puma Runner Pro</ThemedText>
+        <ThemedText>
+          R$ 279,00 - Leveza e design moderno para suas corridas e treinos.
+        </ThemedText>
+      </ThemedView>
+
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Super Promoção</ThemedText>
+        <ThemedText>
+          Tênis Nike Air Max por R$ 299,00! Oferta válida até o fim do estoque.
+        </ThemedText>
+      </ThemedView>
+
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Depoimentos</ThemedText>
+        <ThemedText>
+          "Comprei o Nike Air Max e estou apaixonado pelo conforto!" - João
+        </ThemedText>
+        <ThemedText>
+          "Entrega rápida e produto de qualidade, recomendo!" - Maria
+        </ThemedText>
+      </ThemedView>
+
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Fale Conosco</ThemedText>
+        <ThemedText>
+          Quer o melhor tênis? Tire suas dúvidas com nossa equipe especializada.
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
