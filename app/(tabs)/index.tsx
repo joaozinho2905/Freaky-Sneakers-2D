@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -9,46 +9,25 @@ import { ThemedView } from '@/components/ThemedView';
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/freaky.png')}
           style={styles.reactLogo}
         />
       }>
-      <ThemedView style={styles.titleContainer}>
+      
+      <ThemedView style={styles.heroContainer}>
+        <Text style={styles.slogan}>FreakySneakers</Text>
+        <Text style={styles.tagline}>
+          Veja nossos catalogos.
+        </Text>
+        <TouchableOpacity style={styles.ctaButton}>
+          <Text style={styles.ctaText}>Comprar</Text>
+        </TouchableOpacity>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
+      
+
     </ParallaxScrollView>
   );
 }
@@ -69,5 +48,45 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  heroContainer: {
+    padding: 32,
+    alignItems: 'center',
+    backgroundColor: '#7D26CD',
+  },
+  slogan: {
+    fontSize: 42,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#fff',
+    marginBottom: 12,
+  },
+  tagline: {
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#fff',
+    marginBottom: 24,
+    lineHeight: 22,
+  },
+  ctaButton: {
+    backgroundColor: '#000',
+    paddingHorizontal: 36,
+    paddingVertical: 14,
+    borderRadius: 30,
+  },
+  ctaText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  imageRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 20,
+  },
+  gridImage: {
+    width: 140,
+    height: 180,
+    borderRadius: 8,
   },
 });
