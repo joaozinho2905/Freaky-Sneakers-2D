@@ -4,12 +4,13 @@ import { Image } from "expo-image";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
-
+  const [senha, setSenha] = useState("");
 
   const handleLogin = () => {
     // Aqui você pode implementar autenticação ou navegação
     console.log("Email:", email);
-
+    console.log("Senha:", senha);
+    alert("Login efetuado com sucesso!");
   };
 
   return (
@@ -20,11 +21,9 @@ export default function LoginScreen() {
         style={styles.logo}
       />
 
-    
-      <Text style={styles.subtitle}>Insira seu e-mail para se inscrever ou entrar.</Text>
-        
+      <Text style={styles.title}>Freaky Sneakers</Text>
+      <Text style={styles.subtitle}>Faça seu login</Text>
 
-      
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -34,19 +33,26 @@ export default function LoginScreen() {
         keyboardType="email-address"
       />
 
-      
+      <TextInput
+        style={styles.input}
+        placeholder="Senha"
+        placeholderTextColor="#ccc"
+        value={senha}
+        onChangeText={setSenha}
+        secureTextEntry
+      />
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Continuar</Text>
+        <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
 
-
+      <TouchableOpacity>
+        <Text style={styles.link}>Criar uma conta</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
-
-//fundo//
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -55,25 +61,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
   },
-
-  //logo//
   logo: {
     width: 200,
     height: 120,
     marginBottom: 20,
     resizeMode: "contain",
   },
-
-  //inscrever ou entrar//
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#fff",
+    marginBottom: 5,
+  },
   subtitle: {
     fontSize: 18,
     color: "#fff",
     marginBottom: 30,
   },
-
-  //Email//
   input: {
-    width: "50%",
+    width: "100%",
     height: 50,
     backgroundColor: "#fff",
     borderRadius: 8,
@@ -81,24 +87,24 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     fontSize: 16,
   },
-
-  //botão conmtinuar//
   button: {
-    width: "15%",
+    width: "100%",
     height: 50,
     backgroundColor: "#7D26CD",
-    borderRadius: 50,
+    borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
-    marginLeft: 300,
+    
   },
-
-  //texto botão//
   buttonText: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
   },
-  
+  link: {
+    marginTop: 15,
+    color: "#fff",
+    textDecorationLine: "underline",
+  },
 });
