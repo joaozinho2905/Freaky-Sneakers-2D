@@ -3,11 +3,12 @@ import { Platform, StyleSheet } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
+import ParallaxScrollView from '@/components/ParallaxScrollView2';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { View } from 'react-native';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+
 
 export default function TabTwoScreen() {
     return (
@@ -19,10 +20,12 @@ export default function TabTwoScreen() {
                     style={styles.Logo}
                 />
             }>
-                <ThemedView style={styles.titleContainer}>
+                <ThemedView>
                     <ThemedText style={styles.title}>Termos de uso da Freaky Sneakers</ThemedText>
                 </ThemedView>
+                <ThemedText style={styles.subtitle}>Data de última revisão: 25 de setembro de 2025</ThemedText>
                 <View style={styles.container}>
+                <ThemedText style={styles.subtitle}>LEIA ESTES TERMOS DE SERVIÇO CUIDADOSAMENTE ANTES DE USAR O SITE DA FREAKY SNEAKERS. SEU ACESSO E USO REPRESENTAM SUA ACEITAÇÃO TOTAL E INCONDICIONAL DOS TERMOS DE USO.</ThemedText>
                 <ThemedText style={styles.subtitle}>1. Aceitação dos Termos</ThemedText>
                 <ThemedText style={styles.paragraph}>
                     Ao acessar ou utilizar os serviços da Freaky Sneakers, você concorda com os termos e
@@ -103,17 +106,19 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         color: '#FFFFFF',
-    },
+        },
     subtitle: {
         fontSize: 22,
         fontWeight: 'bold',
-        marginTop: 16,
+        marginTop: 20,
         color: '#FFFFFF',
+        textAlign: 'center',
     },
     paragraph: {
         fontSize: 20,
         lineHeight: 24,
         color: '#FFFFFF',
+        marginTop: 10,
         marginBottom: 16,
     },
     container: {
