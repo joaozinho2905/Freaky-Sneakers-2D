@@ -56,6 +56,11 @@ const styles = StyleSheet.create({
         left: 0,
         position: 'absolute',
     },
+    titleContainer: {
+        paddingVertical: 20,
+        paddingHorizontal: 10,
+        backgroundColor: '#7D26CD',
+    },
     title: {
         fontSize: 30,
         fontWeight: 'bold',

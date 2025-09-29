@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TextInput, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, Linking } from "react-native";
 import { Image } from "expo-image";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
 
-
   const handleLogin = () => {
-    // Aqui você pode implementar autenticação ou navegação
     console.log("Email:", email);
+  };
 
+  const openPrivacy = () => {
+    Linking.openURL(""); //link da página de privacidade//
+  };
+
+  const openTerms = () => {
+    Linking.openURL("termos.tsx"); //link da pçagina de termos//
   };
 
   return (
@@ -20,11 +25,13 @@ export default function LoginScreen() {
         style={styles.logo}
       />
 
-    
-      <Text style={styles.subtitle}>Insira seu e-mail para se inscrever ou entrar.</Text>
-        
+      <Text style={styles.subtitle}>
+        Insira seu e-mail para se inscrever 
+      </Text>
+      <Text style={styles.subtitle}>
+        ou entrar.
+      </Text>
 
-      
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -34,20 +41,29 @@ export default function LoginScreen() {
         keyboardType="email-address"
       />
 
-      
-
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Continuar</Text>
       </TouchableOpacity>
 
-
+      {/* Termos e privacidade */}
+      <Text style={styles.infoText}>
+        Ao continuar, afirmo que concordo com a{" "}
+        <Text style={styles.link} onPress={openPrivacy}>
+          Política de privacidade
+        </Text>{" "}
+        e os{" "}
+        <Text style={styles.link} onPress={openTerms}>
+          Termos de uso
+        </Text>{" "}
+        da Freaky Sneakers.
+      </Text>
     </View>
   );
 }
 
-
-//fundo//
 const styles = StyleSheet.create({
+
+  //fundo
   container: {
     flex: 1,
     backgroundColor: "#000",
@@ -56,24 +72,26 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
-  //logo//
+  //logo da Freaky//
   logo: {
-    width: 200,
+    width: 300,
     height: 120,
     marginBottom: 20,
     resizeMode: "contain",
+    padding: 100,
   },
 
-  //inscrever ou entrar//
+  //inseriri email ou entrar//
   subtitle: {
     fontSize: 18,
     color: "#fff",
-    marginBottom: 30,
+    marginBottom: 8,
+    textAlign: "center",
   },
 
-  //Email//
+//email//
   input: {
-    width: "50%",
+    width: "40%",
     height: 50,
     backgroundColor: "#fff",
     borderRadius: 8,
@@ -82,23 +100,38 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  //botão conmtinuar//
+  //botão continuar//
   button: {
-    width: "15%",
+    width: "10%",
     height: 50,
     backgroundColor: "#7D26CD",
     borderRadius: 50,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
-    marginLeft: 300,
+    marginLeft: 350,
+    marginBottom: 30,
   },
 
-  //texto botão//
+//texto do botão//
   buttonText: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
   },
-  
+
+  //ao continuar//
+  infoText: {
+    color: "#ccc",
+    fontSize: 14,
+    textAlign: "center",
+    marginTop: 20,
+    width: "80%",
+  },
+
+  //termos e uso//
+  link: {
+    color: "#fff",
+    textDecorationLine: "underline",
+  },
 });
