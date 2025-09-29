@@ -1,73 +1,115 @@
+import React from 'react';
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
-export default function HomeScreen() {
+export default function ContactScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          source={require('@/assets/images/freaky.png')}
+          style={styles.Logo}
         />
-      }>
+      }
+    >
       <ThemedView style={styles.titleContainer}>
+        <ThemedText style={styles.title}>Contato Freaky Sneakers</ThemedText>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
+
+      <View style={styles.container}>
+        <ThemedText style={styles.subtitle}>Nome</ThemedText>
+        <TextInput
+          placeholder="Seu nome"
+          placeholderTextColor="#ddd"
+          style={styles.input}
+        />
+
+        <ThemedText style={styles.subtitle}>E-mail</ThemedText>
+        <TextInput
+          placeholder="seu@email.com"
+          placeholderTextColor="#ddd"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          style={styles.input}
+        />
+
+        <ThemedText style={styles.subtitle}>Mensagem</ThemedText>
+        <TextInput
+          placeholder="Escreva sua mensagem aqui..."
+          placeholderTextColor="#ddd"
+          multiline
+          numberOfLines={4}
+          style={[styles.input, styles.textArea]}
+        />
+
+        <TouchableOpacity style={styles.button}>
+          <ThemedText style={styles.buttonText}>Enviar</ThemedText>
+        </TouchableOpacity>
+      </View>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
+
+
+  Logo: {
     height: 178,
     width: 290,
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  titleContainer: {
+    padding: 16,
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#FFFFFF',
+  },
+  subtitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginTop: 16,
+    color: '#FFFFFF',
+  },
+  input: {
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    fontSize: 18,
+    color: '#fff',
+    marginTop: 8,
+  },
+  textArea: {
+    height: 100,
+    textAlignVertical: 'top',
+  },
+  button: {
+    backgroundColor: '#363636',
+    marginTop: 24,
+    paddingVertical: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#7D26CD',
+  },
+  container: {
+    padding: 20,
+    margin: 10,
+    borderWidth: 1,
+    borderColor: '#FFFFFF',
+    borderRadius: 8,
   },
 });
