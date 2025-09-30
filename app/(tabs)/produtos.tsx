@@ -40,15 +40,27 @@ export default function HomeScreen() {
 
       <ThemedView style={[styles.stepContainer, styles.card]}>
         <ThemedText type="subtitle">Adidas Ultraboost 21</ThemedText>
+
+        <Image
+          source={require('@/assets/images/adidasultraboost21.png')}
+          style={styles.shoeImage}
+          contentFit="contain"
+        />
+
         <ThemedText>
           R$ 349,00 - Ideal para corrida, com amortecimento responsivo.
         </ThemedText>
       </ThemedView>
 
       <ThemedView style={[styles.stepContainer, styles.card]}>
-        <ThemedText type="subtitle">Puma Runner Pro</ThemedText>
+      <Image
+          source={require('@/assets/images/puma180.png')}
+          style={styles.shoeImage}
+          contentFit="contain"
+        />
+        <ThemedText type="subtitle">Puma 180</ThemedText>
         <ThemedText>
-          R$ 279,00 - Leveza e design moderno para suas corridas e treinos.
+          R$ 664,00 - Conforto e estilo para o seu dia a dia.
         </ThemedText>
       </ThemedView>
 
@@ -85,6 +97,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
   },
+
+  Text: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+
   stepContainer: {
     gap: 8,
     marginBottom: 16,  
@@ -97,13 +116,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   card: {
-    backgroundColor: '#f9f9f9', 
+    backgroundColor: '#DCDCDC', 
     borderRadius: 12,
-    padding: 16,
+    padding: 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4,
+      height: 0,
     },
     shadowOpacity: 0.1,
     shadowRadius: 6,
@@ -111,11 +130,14 @@ const styles = StyleSheet.create({
   },
   shoeImage: {
     width: '100%',
-    height: 250,
-    borderRadius: 20,
+    height: 500,
+    borderRadius: 10,
     marginVertical: 20,
     
 
   
   },
 });
+
+
+
