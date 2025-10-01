@@ -1,9 +1,7 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
@@ -26,7 +24,27 @@ export default function HomeScreen() {
           <Text style={styles.ctaText}>Comprar</Text>
         </TouchableOpacity>
       </ThemedView>
-      
+
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.categoriesContainer}>
+        {[
+          { name: 'Tênis', img: require('@/assets/images/tenis.png') },
+          { name: 'Roupas', img: require('@/assets/images/tenis.png') },
+          { name: 'Acessórios', img: require('@/assets/images/tenis.png') },
+          { name: 'Lançamentos', img: require('@/assets/images/tenis.png') },
+          { name: 'Promoções', img: require('@/assets/images/tenis.png') },
+        ].map((category, index) => (
+          <View key={index} style={styles.categoryCard}>
+            <Image
+              source={category.img}
+              style={styles.categoryImage}
+              contentFit="cover"
+            />
+            <TouchableOpacity style={styles.categoryButton}>
+              <Text style={styles.categoryButtonText}>{category.name}</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
+      </ScrollView>
 
     </ParallaxScrollView>
   );
@@ -53,6 +71,7 @@ const styles = StyleSheet.create({
     padding: 32,
     alignItems: 'center',
     backgroundColor: '#7D26CD',
+    marginBottom: 20, 
   },
   slogan: {
     fontSize: 42,
@@ -88,5 +107,37 @@ const styles = StyleSheet.create({
     width: 140,
     height: 180,
     borderRadius: 8,
+  },
+
+  categoriesContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    alignItems: 'center',
+  },
+  categoryCard: {
+    width: 80,
+    alignItems: 'center',
+    marginHorizontal: 8,
+  },
+  categoryImage: {
+    width: 70,
+    height: 70,
+    borderRadius: 12,
+    backgroundColor: '#f0f0f0',
+    marginBottom: 8,
+  },
+  categoryButton: {
+    backgroundColor: '#7D26CD',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    width: '100%',
+    alignItems: 'center',
+  },
+  categoryButtonText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '600',
+    textAlign: 'center',
   },
 });
