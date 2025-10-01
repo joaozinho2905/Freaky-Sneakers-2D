@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   //inseriri email ou entrar//
   subtitle: {
     fontSize: 20,
-    color: "#fff",
+    color: "#000",
     marginBottom: 8,
     textAlign: "center",
   },
