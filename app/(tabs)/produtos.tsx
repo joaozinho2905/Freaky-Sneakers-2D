@@ -1,6 +1,5 @@
 import { Image } from 'expo-image';
 import { Platform, StyleSheet } from 'react-native';
-import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -14,79 +13,56 @@ export default function HomeScreen() {
       }
     >
       <ThemedView style={styles.titleContainer}>
-      
+        {/* Conteúdo do título, se necessário */}
       </ThemedView>
 
       <ThemedView style={[styles.stepContainer, styles.card]}>
-        <ThemedText type="subtitle">Tênis em Destaque</ThemedText>
-        <ThemedText>
+        <ThemedText style={styles.text} type="subtitle">Tênis em Destaque</ThemedText>
+        <ThemedText style={styles.text}>
           Confira nossos modelos Nike e Puma com os melhores preços e qualidade.
         </ThemedText>
       </ThemedView>
 
       <ThemedView style={[styles.stepContainer, styles.card]}>
-        <ThemedText type="subtitle">Nike Air Max 90</ThemedText>
+        <ThemedText style={styles.text} type="subtitle">Nike Air Max 90</ThemedText>
 
         <Image
-          source={require('@/assets/images/airmax90.png')}
+          source={require('@/assets/images/airmax90.png')} // Substitua por imagem de fundo transparente ou melhor qualidade
           style={styles.shoeImage}
           contentFit="contain"
         />
 
-        <ThemedText>
+        <ThemedText style={styles.text}>
           R$ 299,00 - Clássico com conforto para o dia a dia.
         </ThemedText>
       </ThemedView>
 
       <ThemedView style={[styles.stepContainer, styles.card]}>
-        <ThemedText type="subtitle">Adidas Ultraboost 21</ThemedText>
+        <ThemedText style={styles.text} type="subtitle">Adidas Ultraboost 21</ThemedText>
 
         <Image
-          source={require('@/assets/images/adidasultraboost21.png')}
+          source={require('@/assets/images/adidasultraboost21.png')} // Atualize se necessário
           style={styles.shoeImage}
           contentFit="contain"
         />
 
-        <ThemedText>
+        <ThemedText style={styles.text}>
           R$ 349,00 - Ideal para corrida, com amortecimento responsivo.
         </ThemedText>
       </ThemedView>
 
       <ThemedView style={[styles.stepContainer, styles.card]}>
-      <Image
-          source={require('@/assets/images/puma180.png')}
+        <Image
+          source={require('@/assets/images/puma180.png')} // Atualize se necessário
           style={styles.shoeImage}
           contentFit="contain"
         />
-        <ThemedText type="subtitle">Puma 180</ThemedText>
-        <ThemedText>
+        <ThemedText style={styles.text} type="subtitle">Puma 180</ThemedText>
+        <ThemedText style={styles.text}>
           R$ 664,00 - Conforto e estilo para o seu dia a dia.
         </ThemedText>
       </ThemedView>
 
-      <ThemedView style={[styles.stepContainer, styles.card]}>
-        <ThemedText type="subtitle">Super Promoção</ThemedText>
-        <ThemedText>
-          Tênis Nike Air Max por R$ 299,00! Oferta válida até o fim do estoque.
-        </ThemedText>
-      </ThemedView>
-
-      <ThemedView style={[styles.stepContainer, styles.card]}>
-        <ThemedText type="subtitle">Depoimentos</ThemedText>
-        <ThemedText>
-          "Comprei o Nike Air Max e estou apaixonado pelo conforto!" - João
-        </ThemedText>
-        <ThemedText>
-          "Entrega rápida e produto de qualidade, recomendo!" - Maria
-        </ThemedText>
-      </ThemedView>
-
-      <ThemedView style={[styles.stepContainer, styles.card]}>
-        <ThemedText type="subtitle">Fale Conosco</ThemedText>
-        <ThemedText>
-          Quer o melhor tênis? Tire suas dúvidas com nossa equipe especializada.
-        </ThemedText>
-      </ThemedView>
     </ParallaxScrollView>
   );
 }
@@ -98,16 +74,16 @@ const styles = StyleSheet.create({
     gap: 8,
   },
 
-  Text: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "bold",
+  text: {
+    color: "#FFFFFF",
+    fontSize: 16,
   },
 
   stepContainer: {
     gap: 8,
-    marginBottom: 16,  
+    marginBottom: 16,
   },
+
   reactLogo: {
     height: 178,
     width: 290,
@@ -115,8 +91,9 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
+
   card: {
-    backgroundColor: '#DCDCDC', 
+    backgroundColor: '#363636', 
     borderRadius: 12,
     padding: 10,
     shadowColor: '#000',
@@ -126,18 +103,13 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.1,
     shadowRadius: 6,
-    elevation: 3, 
+    elevation: 3,
   },
+
   shoeImage: {
     width: '100%',
     height: 500,
     borderRadius: 10,
     marginVertical: 20,
-    
-
-  
   },
 });
-
-
-
