@@ -10,7 +10,8 @@ export default function LoginScreen() {
   };
 
   const openPrivacy = () => {
-    Linking.openURL(""); //link da página de privacidade//
+    Linking.openURL("aqui"); //link da página de privacidade//
+    <link rel="import" href="" />
   };
 
   const openTerms = () => {
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   //fundo
   container: {
     flex: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#7D26CD",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
@@ -102,9 +103,9 @@ const styles = StyleSheet.create({
 
   //botão continuar//
   button: {
-    width: "10%",
+    width: "25%",
     height: 50,
-    backgroundColor: "#7D26CD",
+    backgroundColor: "#000",
     borderRadius: 50,
     alignItems: "center",
     justifyContent: "center",

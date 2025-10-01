@@ -132,7 +132,7 @@ export default function CadastroScreen() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: "#000",
+    backgroundColor: "#7D26CD",
     alignItems: "center",
     padding: 20,
   },
@@ -200,14 +200,14 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     marginLeft: "5%",
     marginBottom: 10,
-    color: "#000",
+    color: "#fff",
   },
 
   // Botão
   button: {
     width: "20%",
     height: 50,
-    backgroundColor: "#7D26CD",
+    backgroundColor: "#000",
     borderRadius: 25,
     alignItems: "center",
     justifyContent: "center",
