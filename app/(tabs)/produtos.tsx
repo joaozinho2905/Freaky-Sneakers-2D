@@ -13,12 +13,7 @@ export default function HomeScreen() {
       }
     >
       <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
-        <ThemedView style={[styles.stepContainer, styles.card]}>
-          <ThemedText type="subtitle">Tênis em Destaque</ThemedText>
-          <ThemedText>
-            Confira nossos modelos Nike e Puma com os melhores preços e qualidade.
-          </ThemedText>
-        </ThemedView>
+      
 
         <ThemedView style={[styles.stepContainer, styles.card]}>
           <ThemedText type="subtitle">Nike Air Max 90</ThemedText>
@@ -31,9 +26,9 @@ export default function HomeScreen() {
         </ThemedView>
 
         <ThemedView style={[styles.stepContainer, styles.card]}>
-          <ThemedText type="subtitle">Adidas Ultraboost 21</ThemedText>
+          <ThemedText type="subtitle">Air Force 1</ThemedText>
           <Image
-            source={require('@/assets/images/adidasultraboost21.png')}
+            source={require('@/assets/images/AirForce1.png')}
             style={styles.shoeImage}
             contentFit="contain"
           />
@@ -42,11 +37,11 @@ export default function HomeScreen() {
 
         <ThemedView style={[styles.stepContainer, styles.card]}>
           <Image
-            source={require('@/assets/images/puma180.png')}
+            source={require('@/assets/images/AirMaxTN.png')}
             style={styles.shoeImage}
             contentFit="contain"
           />
-          <ThemedText type="subtitle">Puma 180</ThemedText>
+          <ThemedText type="subtitle">Air Max TN</ThemedText>
           <ThemedText>R$ 664,00 - Conforto e estilo para o seu dia a dia.</ThemedText>
         </ThemedView>
 
