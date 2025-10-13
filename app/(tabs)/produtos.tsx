@@ -1,28 +1,32 @@
-import { Image } from 'expo-image';
+import { Image, TouchableOpacity } from 'react-native';
 import { Platform, StyleSheet, ScrollView } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
-export default function HomeScreen() {
+export default function TabTwoScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
-      headerImage={
-        <Image source={require('@/assets/images/freaky.png')} style={styles.reactLogo} />
-      }
-    >
+      <ParallaxScrollView
+          headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
+          headerImage={
+              <Image
+                  source={require('@/assets/images/freaky.png')}
+                  style={styles.Logo}
+              />
+          }>
       <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
-      
-
+        
         <ThemedView style={[styles.stepContainer, styles.card]}>
           <ThemedText type="subtitle">Nike Air Max 90</ThemedText>
           <Image
             source={require('@/assets/images/airmax90.png')}
             style={styles.shoeImage}
-            contentFit="contain"
+            
           />
           <ThemedText>R$ 299,00 - Clássico com conforto para o dia a dia.</ThemedText>
+          <TouchableOpacity style={styles.buyButton}>
+            <ThemedText style={styles.buttonText}>Comprar</ThemedText>
+          </TouchableOpacity>
         </ThemedView>
 
         <ThemedView style={[styles.stepContainer, styles.card]}>
@@ -30,39 +34,51 @@ export default function HomeScreen() {
           <Image
             source={require('@/assets/images/AirForce1.png')}
             style={styles.shoeImage}
-            contentFit="contain"
+           
           />
           <ThemedText>R$ 549,00 - Ideal para corrida, com amortecimento responsivo.</ThemedText>
+          <TouchableOpacity style={styles.buyButton}>
+            <ThemedText style={styles.buttonText}>Comprar</ThemedText>
+          </TouchableOpacity>
         </ThemedView>
 
         <ThemedView style={[styles.stepContainer, styles.card]}>
           <Image
             source={require('@/assets/images/AirMaxTN.png')}
             style={styles.shoeImage}
-            contentFit="contain"
+           
           />
           <ThemedText type="subtitle">Air Max TN</ThemedText>
           <ThemedText>R$ 664,00 - Conforto e estilo para o seu dia a dia.</ThemedText>
+          <TouchableOpacity style={styles.buyButton}>
+            <ThemedText style={styles.buttonText}>Comprar</ThemedText>
+          </TouchableOpacity>
         </ThemedView>
 
         <ThemedView style={[styles.stepContainer, styles.card]}>
           <Image
             source={require('@/assets/images/AirMaxDN.png')}
             style={styles.shoeImage}
-            contentFit="contain"
+
           />
           <ThemedText type="subtitle">Air Max DN</ThemedText>
           <ThemedText>Tênis Nike Air Max DN perfeito para ocasiões especiais.</ThemedText>
+          <TouchableOpacity style={styles.buyButton}>
+            <ThemedText style={styles.buttonText}>Comprar</ThemedText>
+          </TouchableOpacity>
         </ThemedView>
 
         <ThemedView style={[styles.stepContainer, styles.card]}>
           <Image
             source={require('@/assets/images/Nikedunk.png')}
             style={styles.shoeImage}
-            contentFit="contain"
+
           />
           <ThemedText type="subtitle">Nike Dunk Low Preto</ThemedText>
           <ThemedText>Tênis Nike Dunk low preto, feito para seu rolê de semana.</ThemedText>
+          <TouchableOpacity style={styles.buyButton}>
+            <ThemedText style={styles.buttonText}>Comprar</ThemedText>
+          </TouchableOpacity>
         </ThemedView>
 
         <ThemedView style={[styles.stepContainer, styles.card]}>
@@ -83,13 +99,22 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
 
+  Logo: {
+    height: 178,
+    width: 290,
+    bottom: 0,
+    left: 0,
+    position: 'absolute',
+  },  
+
+  
   stepContainer: {
     gap: 6,
     marginBottom: 16,
   },
 
   card: {
-    flexBasis: '48%', // permite 2 cards por linha em telas menores
+    flexBasis: '48%', 
     maxWidth: '48%',
     backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 6,
@@ -102,13 +127,27 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
 
-  // Para telas maiores, ajuste o flexBasis para 31% via media query ou outra lógica (se suportar)
+    shoeImage: {
+      width: '100%',
+      aspectRatio: 1.6,
+      borderRadius: 10,
+      resizeMode: 'contain',
+      marginVertical: 10,
+    },
 
-  shoeImage: {
-    width: '100%',
-    aspectRatio: 1.6, // manter proporção largura:altura, exemplo 16:10
-    borderRadius: 10,
-    resizeMode: 'contain',
-    marginVertical: 10,
-  },
-});
+    buyButton: {
+      backgroundColor: '#7D26CD', 
+      paddingVertical: 10,
+      paddingHorizontal: 24,
+      borderRadius: 30,
+      alignItems: 'center',
+      marginTop: 12,
+    },
+
+    buttonText: {
+      color: 'white',
+      fontWeight: 'bold',
+      fontSize: 16,
+    },
+  });
+
