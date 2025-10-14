@@ -11,10 +11,12 @@ export default function HomeScreen() {
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
       headerImage={
-        <Image
-          source={require('@/assets/images/freaky.png')}
-          style={styles.Logo}
-        />
+        <View style={styles.image}>
+          <Image
+            source={require('@/assets/images/freaky.png')}
+            style={styles.logo}
+          />
+        </View>
       }
     >
       <ThemedView style={styles.titleContainer}>
@@ -82,12 +84,21 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  Logo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+  logoContainer: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
+  },
+  logo: {
+    width: 200,
+    height: 120,
+    resizeMode: 'contain',
   },
   titleContainer: {
     padding: 16,
