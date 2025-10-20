@@ -11,13 +11,11 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
+      headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
       headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
+        <Image
+          source={require('@/assets/images/freaky.png')}
+          style={styles.Logo}
         />
       }>
       <ThemedView style={styles.titleContainer}>
@@ -82,6 +80,14 @@ export default function TabTwoScreen() {
           ),
         })}
       </Collapsible>
+      <Collapsible
+        title="Sair"
+        headerBackgroundColor="#FF0000"  
+        titleColor="#fff"        >
+        <ExternalLink href="https://docs.expo.dev/router/introduction">
+          <ThemedText type="link">Learn more</ThemedText>
+        </ExternalLink>
+      </Collapsible>
     </ParallaxScrollView>
   );
 }
@@ -91,6 +97,13 @@ const styles = StyleSheet.create({
     color: 'white',
     bottom: -90,
     left: -35,
+    position: 'absolute',
+  },
+  Logo: {
+    height: 178,
+    width: 290,
+    bottom: 0,
+    left: 0,
     position: 'absolute',
   },
   titleContainer: {
