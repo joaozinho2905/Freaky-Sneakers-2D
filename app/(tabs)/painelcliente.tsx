@@ -21,18 +21,18 @@ export default function TabTwoScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Painel cliente</ThemedText>
       </ThemedView>
-      <Collapsible title="Minha informações">
+      <Collapsible title="Minha informações" titleColor="#fff">
         <ExternalLink href="https://docs.expo.dev/router/introduction">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Hístorico de pedidos">
+      <Collapsible title="Hístorico de pedidos" titleColor="#fff">
         <ThemedText>
           You can open this project on Android, iOS, and the web. To open the web version, press{' '}
           <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
         </ThemedText>
       </Collapsible>
-      <Collapsible title="Formas de pagamento">
+      <Collapsible title="Formas de pagamento" titleColor="#fff">
         <ThemedText>
           For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
           <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
@@ -43,7 +43,7 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Notificações e alertas">
+      <Collapsible title="Notificações e alertas" titleColor="#fff">
         <ThemedText>
           Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
           <ThemedText style={{ fontFamily: 'SpaceMono' }}>
@@ -54,7 +54,7 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Avaliações e comentários">
+      <Collapsible title="Avaliações e comentários" titleColor="#fff">
         <ThemedText>
           This template has light and dark mode support. The{' '}
           <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
@@ -64,7 +64,7 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Suporte ao cliente">
+      <Collapsible title="Suporte ao cliente" titleColor="#fff">
         <ThemedText>
           This template includes an example of an animated component. The{' '}
           <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
@@ -109,5 +109,6 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     gap: 8,
+    color: 'white',
   },
 });
