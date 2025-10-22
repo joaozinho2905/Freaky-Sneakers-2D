@@ -19,16 +19,30 @@ export default function HomeScreen() {
     >
       
       <ThemedView style={styles.heroContainer}>
-        <Text style={styles.slogan}>FreakySneakers</Text>
-        <Text style={styles.tagline}>
-          Veja nossas categorias.
-        </Text>
-        <TouchableOpacity style={styles.ctaButton}>
-          <Text style={styles.ctaText}>Explorar</Text>
-        </TouchableOpacity>
+        <Text style={styles.slogan}>Nossas categorias</Text>
+        
       </ThemedView>
 
-      
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.categoriesContainer}>
+        {[
+          { name: 'Nike', img: require('@/assets/images/download (3).png') },
+          { name: 'New Balance', img: require('@/assets/images/download (2).png') },
+          { name: 'Puma', img: require('@/assets/images/download (4).png') },
+          { name: 'Adidas', img: require('@/assets/images/download (1).png') },
+          { name: 'Olympikus', img: require('@/assets/images/download.png') },
+        ].map((category, index) => (
+          <View key={index} style={styles.categoryCard}>
+            <Image
+              source={category.img}
+              style={styles.categoryImage}
+              contentFit="cover"
+            />
+            <TouchableOpacity style={styles.categoryButton}>
+              <Text style={styles.categoryButtonText}>{category.name}</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
+      </ScrollView>
 
     </ParallaxScrollView>
   );
