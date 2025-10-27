@@ -10,7 +10,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import { useState } from 'react';
 
 export default function TabTwoScreen() {
-  // Estados para armazenar dados do formulário
+  
   const [codigo, setCodigo] = useState("");
   const [nome, setNome] = useState("");
   const [sobrenome, setSobrenome] = useState("");
@@ -34,7 +34,7 @@ export default function TabTwoScreen() {
         <ThemedText type="title">Painel cliente</ThemedText>
       </ThemedView>
 
-      {/* Collapsible para 'Minha Informações' */}
+      
       <Collapsible title="Minha informações" titleColor="#fff">
         <ThemedText>Atualize suas informações pessoais.</ThemedText>
         <View style={styles.row}>
@@ -102,7 +102,6 @@ export default function TabTwoScreen() {
         />
       </Collapsible>
 
-      {/* Collapsible para 'Histórico de pedidos' */}
       <Collapsible title="Histórico de pedidos" titleColor="#fff">
         <ThemedText>Confira os detalhes dos seus pedidos anteriores.</ThemedText>
         <View style={styles.historyContainer}>
@@ -115,7 +114,7 @@ export default function TabTwoScreen() {
         </View>
       </Collapsible>
 
-      {/* Collapsible para 'Formas de pagamento' */}
+      
       <Collapsible title="Formas de pagamento" titleColor="#fff">
         <ThemedText>Gerencie suas formas de pagamento preferidas.</ThemedText>
         <View style={styles.historyContainer}>
@@ -145,7 +144,7 @@ export default function TabTwoScreen() {
         />
       </Collapsible>
 
-      {/* Collapsible para 'Notificações e alertas' */}
+      
       <Collapsible title="Notificações e alertas" titleColor="#fff">
         <ThemedText>Gerencie as notificações e alertas que você deseja receber.</ThemedText>
         <View style={styles.notificationContainer}>
@@ -164,7 +163,7 @@ export default function TabTwoScreen() {
         </View>
       </Collapsible>
 
-      {/* Collapsible para 'Suporte ao cliente' */}
+      
       <Collapsible title="Suporte ao cliente" titleColor="#fff">
         <ThemedText>Entre em contato com nossa equipe de suporte.</ThemedText>
         <TextInput
@@ -180,7 +179,7 @@ export default function TabTwoScreen() {
         />
       </Collapsible>
 
-      {/* Collapsible para 'Sair' */}
+    
       <Collapsible title="Sair" headerBackgroundColor="#FF0000" titleColor="#fff">
         <ThemedText>Deseja sair da sua conta?</ThemedText>
         <CustomButton
