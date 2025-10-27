@@ -7,8 +7,19 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import { useState } from 'react';
 
 export default function TabTwoScreen() {
+  // Estados para armazenar dados do formulário
+  const [codigo, setCodigo] = useState("");
+  const [nome, setNome] = useState("");
+  const [sobrenome, setSobrenome] = useState("");
+  const [senha, setSenha] = useState("");
+  const [dia, setDia] = useState("");
+  const [mes, setMes] = useState("");
+  const [ano, setAno] = useState("");
+  
+  
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
@@ -26,14 +37,61 @@ export default function TabTwoScreen() {
       {/* Collapsible para 'Minha Informações' */}
       <Collapsible title="Minha informações" titleColor="#fff">
         <ThemedText>Atualize suas informações pessoais.</ThemedText>
+        <View style={styles.row}>
         <TextInput
-          style={styles.input}
-          placeholder="Digite seu nome"
-          placeholderTextColor="#ccc"
+          style={[styles.input, styles.inputHalf]}
+          placeholder="Nome*"
+          placeholderTextColor="#999"
+          value={nome}
+          onChangeText={setNome}
+        />
+        <TextInput
+          style={[styles.input, styles.inputHalf]}
+          placeholder="Sobrenome*"
+          placeholderTextColor="#999"
+          value={sobrenome}
+          onChangeText={setSobrenome}
+        />
+        
+        </View>
+        <View style={styles.row}>
+        <TextInput
+          style={[styles.input, styles.inputHalf]}
+          placeholder="CPF*"
+          placeholderTextColor="#999"
+          value={nome}
+          onChangeText={setNome}
+        />
+        <TextInput
+          style={[styles.input, styles.inputHalf]}
+          placeholder="CEP*"
+          placeholderTextColor="#999"
+          value={sobrenome}
+          onChangeText={setSobrenome}
+        />
+        <TextInput
+          style={[styles.input, styles.inputHalf]}
+          placeholder="Endereço*"
+          placeholderTextColor="#999"
+          value={sobrenome}
+          onChangeText={setSobrenome}
+        />
+      </View>
+      <TextInput
+          style={[styles.input, styles.inputHalf]}
+          placeholder="Data de nascimento*"
+          placeholderTextColor="#999"
+          value={sobrenome}
+          onChangeText={setSobrenome}
         />
         <TextInput
           style={styles.input}
           placeholder="Digite seu e-mail"
+          placeholderTextColor="#ccc"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Digite sua senha"
           placeholderTextColor="#ccc"
         />
         <CustomButton
@@ -60,6 +118,10 @@ export default function TabTwoScreen() {
       {/* Collapsible para 'Formas de pagamento' */}
       <Collapsible title="Formas de pagamento" titleColor="#fff">
         <ThemedText>Gerencie suas formas de pagamento preferidas.</ThemedText>
+        <View style={styles.historyContainer}>
+          <ThemedText>Cartão 1 - Crédito</ThemedText>
+          <ExternalLink title="Ver detalhes" href="https://www.exemplo.com/pedido/123" />
+        </View>
         <TextInput
           style={styles.input}
           placeholder="Digite o número do cartão"
@@ -70,11 +132,16 @@ export default function TabTwoScreen() {
           placeholder="Digite a data de validade"
           placeholderTextColor="#ccc"
         />
+        <TextInput
+          style={styles.input}
+          placeholder="CVV"
+          placeholderTextColor="#ccc"
+        />
         <CustomButton
           title="Adicionar cartão"
           onPress={() => alert("Cartão adicionado")}
-          buttonColor="#9C27B0" // Cor de fundo laranja
-          textColor="#fff" // Cor do texto branco
+          buttonColor="#9C27B0" 
+          textColor="#fff" 
         />
       </Collapsible>
 
@@ -85,14 +152,14 @@ export default function TabTwoScreen() {
           <CustomButton
             title="Ativar notificações de promoções"
             onPress={() => alert("Promoções ativadas")}
-            buttonColor="#9C27B0" // Cor de fundo azul
-            textColor="#fff" // Cor do texto branco
+            buttonColor="#9C27B0" 
+            textColor="#fff" 
           />
           <CustomButton
             title="Ativar alertas de pedidos"
             onPress={() => alert("Alertas de pedidos ativados")}
-            buttonColor="#9C27B0" // Cor de fundo amarelo
-            textColor="#fff" // Cor do texto branco
+            buttonColor="#9C27B0" 
+            textColor="#fff" 
           />
         </View>
       </Collapsible>
@@ -108,8 +175,8 @@ export default function TabTwoScreen() {
         <CustomButton
           title="Enviar mensagem"
           onPress={() => alert("Mensagem enviada ao suporte")}
-          buttonColor="#9C27B0" // Cor de fundo rosa
-          textColor="#fff" // Cor do texto branco
+          buttonColor="#9C27B0" 
+          textColor="#fff" 
         />
       </Collapsible>
 
@@ -119,8 +186,8 @@ export default function TabTwoScreen() {
         <CustomButton
           title="Sair"
           onPress={() => alert("Você foi desconectado")}
-          buttonColor="#9C27B0" // Cor de fundo vermelho
-          textColor="#fff" // Cor do texto branco
+          buttonColor="#FF0000" 
+          textColor="#fff" 
         />
       </Collapsible>
 
@@ -128,7 +195,6 @@ export default function TabTwoScreen() {
   );
 }
 
-// Componente customizado de botão
 const CustomButton = ({ title, onPress, buttonColor, textColor }) => {
   return (
     <TouchableOpacity
@@ -193,4 +259,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  row: {
+    gap: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "90%",
+  },
+  inputHalf: {
+    width: "50%",
+  }
 });
