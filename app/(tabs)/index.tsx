@@ -1,10 +1,29 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
 
 export default function HomeScreen() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const images = [
+    require('@/assets/images/download.png'),
+    require('@/assets/images/download (1).png'),
+    require('@/assets/images/download (2).png'),
+    require('@/assets/images/download (3).png'),
+    require('@/assets/images/download (4).png'),
+  ];
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
@@ -17,19 +36,29 @@ export default function HomeScreen() {
         </View>
       }
     >
-      
       <ThemedView style={styles.heroContainer}>
-        <Text style={styles.slogan}>FreakySneakers</Text>
-        <Text style={styles.tagline}>
-          Veja nossas categorias.
-        </Text>
+        <View style={styles.carouselContainer}>
+          <TouchableOpacity onPress={prevImage} style={styles.arrowButtonLeft}>
+            <Text style={styles.arrowText}>‹</Text>
+          </TouchableOpacity>
+
+          <Image
+            source={images[currentIndex]}
+            style={styles.carouselImage}
+            contentFit="cover"
+            transition={300}
+          />
+
+          <TouchableOpacity onPress={nextImage} style={styles.arrowButtonRight}>
+            <Text style={styles.arrowText}>›</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Text style={styles.tagline}>Veja nossas categorias.</Text>
         <TouchableOpacity style={styles.ctaButton}>
           <Text style={styles.ctaText}>Explorar</Text>
         </TouchableOpacity>
       </ThemedView>
-
-      
-
     </ParallaxScrollView>
   );
 }
@@ -42,41 +71,60 @@ const styles = StyleSheet.create({
     backgroundColor: '#7D26CD',
     paddingVertical: 20,
     width: '100%',
-    height: 200,  
+    height: 200,
   },
   logo: {
     width: 200,
     height: 120,
     resizeMode: 'contain',
   },
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
   heroContainer: {
-    padding: 25,
+    padding: 20,
     alignItems: 'center',
     backgroundColor: '#7D26CD',
-    marginBottom: 20, 
+    marginBottom: 20,
   },
-  slogan: {
-    fontSize: 42,
-    fontWeight: 'bold',
-    textAlign: 'center',
+  carouselContainer: {
+    position: 'relative',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+  },
+  carouselImage: {
+    width: '60%',
+    aspectRatio: 16 / 9, 
+    borderRadius: 16,
+    backgroundColor: '#f0f0f0',
+  },
+  arrowButtonLeft: {
+    position: 'absolute',
+    left: 8,
+    top: '50%',
+    transform: [{ translateY: -20 }],
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  arrowButtonRight: {
+    position: 'absolute',
+    right: 8,
+    top: '50%',
+    transform: [{ translateY: -20 }],
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  arrowText: {
     color: '#fff',
-    marginBottom: 12,
+    fontSize: 24,
+    fontWeight: 'bold',
   },
   tagline: {
     fontSize: 16,
@@ -95,47 +143,5 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
-  },
-  imageRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 20,
-  },
-  gridImage: {
-    width: 140,
-    height: 180,
-    borderRadius: 8,
-  },
-
-  categoriesContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    alignItems: 'center',
-  },
-  categoryCard: {
-    width: 80,
-    alignItems: 'center',
-    marginHorizontal: 8,
-  },
-  categoryImage: {
-    width: 70,
-    height: 70,
-    borderRadius: 12,
-    backgroundColor: '#f0f0f0',
-    marginBottom: 8,
-  },
-  categoryButton: {
-    backgroundColor: '#7D26CD',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 20,
-    width: '100%',
-    alignItems: 'center',
-  },
-  categoryButtonText: {
-    color: '#fff',
-    fontSize: 12,
-    fontWeight: '600',
-    textAlign: 'center',
   },
 });
