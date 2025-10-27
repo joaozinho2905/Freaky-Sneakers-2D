@@ -19,34 +19,34 @@ export default function TabTwoScreen() {
       <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
         {[
           {
-            title: 'Nike Air Max 90',
-            image: require('@/assets/images/airmax90.png'),
-            description: 'R$ 299,00 - Clássico com conforto para o dia a dia.',
+            title: 'Puma 180 Branco/Preto',
+            image: require('@/assets/images/puma180.png'),
+            description: 'R$ 649,00 - Clássico com conforto para o dia a dia.',
           },
           {
-            title: 'Air Force 1',
-            image: require('@/assets/images/AirForce1.png'),
-            description: 'R$ 549,00 - Ideal para corrida, com amortecimento responsivo.',
+            title: 'Puma Suede Xl',
+            image: require('@/assets/images/suedexl.png'),
+            description: 'R$ 549,00 - Puma para estar te auxiliando nos suas ocasiões.',
           },
           {
-            title: 'Air Max TN',
-            image: require('@/assets/images/AirMaxTN.png'),
+            title: 'Adidas Forum Low CI',
+            image: require('@/assets/images/Forum.png'),
             description: 'R$ 664,00 - Conforto e estilo para o seu dia a dia.',
           },
           {
-            title: 'Air Court Vision',
-            image: require('@/assets/images/CourtVision.png'),
-            description: 'Tênis Nike Air Max DN perfeito para ocasiões especiais.',
+            title: 'Adidas ADI2000',
+            image: require('@/assets/images/adi2000.png'),
+            description: 'R$799,90 Adidas estiloso para saídas e ocasiões especiais e únicas.',
           },
           {
-            title: 'Nike Dunk Low Preto',
-            image: require('@/assets/images/Nikedunk.png'),
+            title: 'Adidas Ultraboost 5',
+            image: require('@/assets/images/ultraboost.png'),
             description: 'Tênis Nike Dunk low preto, feito para seu rolê de semana.',
           },
           {
-            title: 'Nike Dunk Low Preto',
-            image: require('@/assets/images/NikeDN.png'),
-            description: 'Tênis Nike Dunk low preto, feito para seu rolê de semana.',
+            title: 'Adidas Campus',
+            image: require('@/assets/images/campus.png'),
+            description: 'R$699,99 Adidas campos feitos para aquelas saídas do dia a dia',
           },
         ].map((product, index) => (
           <ThemedView key={index} style={[styles.card]}>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    height: 140,
+    height: 200,
     width: '100%',
     position: 'absolute',
     top: 0,
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
   },
 
   shoeImage: {
-    width: 180,
-    height: 150,
+    width: 200  ,
+    height: 170,
     marginBottom: 12,
   },
   
