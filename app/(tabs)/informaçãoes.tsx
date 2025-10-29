@@ -93,7 +93,7 @@ export default function TabTwoScreen() {
     - Endereço físico: Rua Jussara 123
   </ThemedText>
   <ThemedText style={styles.paragraph}>
-    - E-mail: FreakySneakers@gmail.com
+    - E-mail: freakysneakers@gmail.com
   </ThemedText>
   <ThemedText style={styles.paragraph}>
     - Telefone: 1234-5678
