@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
@@ -17,10 +17,8 @@ export default function HomeScreen() {
         </View>
       }
     >
-      
       <ThemedView style={styles.heroContainer}>
         <Text style={styles.slogan}>Nossas categorias</Text>
-        
       </ThemedView>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.categoriesContainer}>
@@ -30,12 +28,17 @@ export default function HomeScreen() {
           { name: 'Puma', img: require('@/assets/images/download (4).png') },
           { name: 'Adidas', img: require('@/assets/images/download (1).png') },
           { name: 'Olympikus', img: require('@/assets/images/download.png') },
+          { name: 'Reebok', img: require('@/assets/images/download (5).png') },
+          { name: 'Asics', img: require('@/assets/images/download (6).png') },
+          { name: 'Converse', img: require('@/assets/images/download (7).png') },
+          { name: 'Vans', img: require('@/assets/images/download (8).png') },
+          { name: 'Fila', img: require('@/assets/images/download (9).png') },
         ].map((category, index) => (
           <View key={index} style={styles.categoryCard}>
             <Image
               source={category.img}
               style={styles.categoryImage}
-              contentFit="cover"
+              contentFit="contain"
             />
             <TouchableOpacity style={styles.categoryButton}>
               <Text style={styles.categoryButtonText}>{category.name}</Text>
@@ -43,7 +46,6 @@ export default function HomeScreen() {
           </View>
         ))}
       </ScrollView>
-
     </ParallaxScrollView>
   );
 }
@@ -56,34 +58,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#7D26CD',
     paddingVertical: 20,
     width: '100%',
-    height: 200,  
+    height: 200,
   },
   logo: {
     width: 200,
     height: 120,
     resizeMode: 'contain',
   },
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
   heroContainer: {
     padding: 25,
     alignItems: 'center',
     backgroundColor: '#7D26CD',
-    marginBottom: 20, 
+    marginBottom: 20,
   },
   slogan: {
     fontSize: 42,
@@ -92,35 +78,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 12,
   },
-  tagline: {
-    fontSize: 16,
-    textAlign: 'center',
-    color: '#fff',
-    marginBottom: 24,
-    lineHeight: 22,
-  },
-  ctaButton: {
-    backgroundColor: '#000',
-    paddingHorizontal: 36,
-    paddingVertical: 14,
-    borderRadius: 30,
-  },
-  ctaText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  imageRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 20,
-  },
-  gridImage: {
-    width: 140,
-    height: 180,
-    borderRadius: 8,
-  },
-
   categoriesContainer: {
     paddingHorizontal: 16,
     paddingVertical: 10,
@@ -135,8 +92,10 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 12,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#fff', // fundo branco para melhor contraste com logos
     marginBottom: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   categoryButton: {
     backgroundColor: '#7D26CD',
