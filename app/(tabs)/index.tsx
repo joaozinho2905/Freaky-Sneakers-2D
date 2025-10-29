@@ -1,12 +1,13 @@
 import { Image } from 'expo-image';
 import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react';
-
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const router = useRouter();
 
   const images = [
     require('@/assets/images/download.png'),
@@ -55,7 +56,10 @@ export default function HomeScreen() {
         </View>
 
         <Text style={styles.tagline}>Veja nossas categorias.</Text>
-        <TouchableOpacity style={styles.ctaButton}>
+        <TouchableOpacity 
+          style={styles.ctaButton}
+          onPress={() => router.push('/categorias')}
+        >
           <Text style={styles.ctaText}>Explorar</Text>
         </TouchableOpacity>
       </ThemedView>

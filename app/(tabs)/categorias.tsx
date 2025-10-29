@@ -1,10 +1,12 @@
 import { Image } from 'expo-image';
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
-
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
@@ -40,7 +42,10 @@ export default function HomeScreen() {
               style={styles.categoryImage}
               contentFit="contain"
             />
-            <TouchableOpacity style={styles.categoryButton}>
+            <TouchableOpacity 
+              style={styles.categoryButton}
+              onPress={() => router.push(`/${category.name.toLowerCase().replace(/\s+/g, '-')}`)}
+            >
               <Text style={styles.categoryButtonText}>{category.name}</Text>
             </TouchableOpacity>
           </View>
@@ -92,7 +97,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 12,
-    backgroundColor: '#fff', // fundo branco para melhor contraste com logos
+    backgroundColor: '#fff',
     marginBottom: 8,
     justifyContent: 'center',
     alignItems: 'center',
