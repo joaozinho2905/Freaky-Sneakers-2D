@@ -21,7 +21,7 @@ export default function TabTwoScreen() {
           {
             title: 'Nike Air Max 90',
             image: require('@/assets/images/airmax90.png'),
-            description: 'R$ 299,00 - Clássico com conforto para o dia a dia.',
+            description: 'R$712,90 Tênis Nike Air Max 90 Masculino ',
           },
           {
             title: 'Air Force 1',
@@ -36,17 +36,17 @@ export default function TabTwoScreen() {
           {
             title: 'Air Court Vision',
             image: require('@/assets/images/CourtVision.png'),
-            description: 'Tênis Nike Air Max DN perfeito para ocasiões especiais.',
+            description: 'R$649,90 Tênis Nike Air Max DN perfeito para ocasiões especiais.',
           },
           {
             title: 'Nike Dunk Low Preto',
             image: require('@/assets/images/Nikedunk.png'),
-            description: 'Tênis Nike Dunk low preto, feito para seu rolê de semana.',
+            description: 'R$699,90 Nike Dunk low preto, feito para seu rolê de semana.',
           },
           {
-            title: 'Nike Dunk Low Preto',
+            title: 'Nike Air Max DN',
             image: require('@/assets/images/NikeDN.png'),
-            description: 'Tênis Nike Dunk low preto, feito para seu rolê de semana.',
+            description: 'R$1,324,90  Tênis Air Max DN.',
           },
         ].map((product, index) => (
           <ThemedView key={index} style={[styles.card]}>

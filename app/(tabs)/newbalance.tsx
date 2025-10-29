@@ -19,34 +19,34 @@ export default function TabTwoScreen() {
       <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
         {[
           {
-            title: 'Puma 180 Branco/Preto',
-            image: require('@/assets/images/puma180.png'),
-            description: 'R$ 649,00 Tênis Puma-180 Em Branco/Azul Horizon',
+            title: 'New Balance 9060  ',
+            image: require('@/assets/images/balance9060.png'),
+            description: 'R$1900,90 New Balance 9060 Triple Black ',
           },
           {
-            title: 'Puma Suede Xl',
-            image: require('@/assets/images/suedexl.png'),
-            description: 'R$ 549,00 - Puma para estar te auxiliando nos suas ocasiões.',
+            title: 'New Balance 530',
+            image: require('@/assets/images/balance530.png'),
+            description: 'R$764,60 Tênis New Balance 530 Natural Indigo - Branco.'
           },
           {
-            title: 'Puma Skyrocket',
-            image: require('@/assets/images/pumasky.png'),
-            description: 'R$332,60 Tênis Puma Skyrocket Lite Preto  .',
+            title: 'New Balance 550',
+            image: require('@/assets/images/balance550.png'),
+            description: 'R$849,50 Tênis New Balance 550 White/Grey',
           },
           {
-            title: 'Puma Suede Classic  ',
-            image: require('@/assets/images/suedeclassic.png'),
-            description: 'R$388,90 Tênis Puma Suede Classic ECO BLACK/WHITE.',
+            title: 'New Balance 480',
+            image: require('@/assets/images/balance480.png'),
+            description: 'R$549,90 Tênis New Balance 480 Low Masculino.',
           },
           {
-            title: 'Puma Speedcat ',
-            image: require('@/assets/images/speed.png'),
-            description: 'R$799,99  Puma Tênis Speedcat Faded Feminino Em Haute Tropic/Alpine Snow.',
+            title: 'New Balance 574',
+            image: require('@/assets/images/balance574.png'),
+            description: ' R$549,50 Tênis New Balance 574v2 Marinho Masculino.',
           },
           {
-            title: 'Puma Park Lifestyle',
-            image: require('@/assets/images/pumapark.png'),
-            description: ' R$499,99 Puma Tênis Park Lifestyle Easy Sd BDP Em Preto.',
+            title: 'New Balance 515',
+            image: require('@/assets/images/balance515.png'),
+            description: 'R$379,90 Tênis New Balance 515 V2 Masculino Preto.',
           },
         ].map((product, index) => (
           <ThemedView key={index} style={[styles.card]}>
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
   },
 
   shoeImage: {
-    width: 200  ,
-    height: 170,
+    width: 180,
+    height: 150,
     marginBottom: 12,
   },
   
