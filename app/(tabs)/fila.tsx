@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { useRouter } from 'expo-router'; 
+import { useRouter } from 'expo-router';
 
 export default function TabTwoScreen() {
   const router = useRouter(); 
@@ -30,34 +30,34 @@ export default function TabTwoScreen() {
       <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
         {[
           {
-            title: 'Puma 180 Branco/Preto',
-            image: require('@/assets/images/puma180.png'),
-            description: 'R$ 649,00 Tênis Puma-180 Em Branco/Azul Horizon',
+            title: 'Fila Recovery',
+            image: require('@/assets/images/recovery.png'),
+            description: 'Tênis FILA Recovery Feminino Branco, Salmão e Cobre.',
           },
           {
-            title: 'Puma Suede Xl',
-            image: require('@/assets/images/suedexl.png'),
-            description: 'R$ 549,00 - Puma para estar te auxiliando nos suas ocasiões.',
+            title: 'Fila Progress',
+            image: require('@/assets/images/progress.png'),
+            description: 'R$249,90 Tênis Fila Progress Lite Masculino em Promoção.',
           },
           {
-            title: 'Puma Skyrocket',
-            image: require('@/assets/images/pumasky.png'),
-            description: 'R$332,60 Tênis Puma Skyrocket Lite Preto.',
+            title: 'Olympikus Diffuse 5',
+            image: require('@/assets/images/diffuse.png'),
+            description: 'R$329,60 Tênis Olympikus Diffuse 5 Masculino.',
           },
           {
-            title: 'Puma Suede Classic',
-            image: require('@/assets/images/suedeclassic.png'),
-            description: 'R$388,90 Tênis Puma Suede Classic ECO BLACK/WHITE.',
+            title: 'Olympikus Dynamic',
+            image: require('@/assets/images/dynamic.png'),
+            description: 'R$299,90 Tênis Masculino Olympikus Dynamic Marinho.',
           },
           {
-            title: 'Puma Speedcat',
-            image: require('@/assets/images/speed.png'),
-            description: 'R$799,99 Puma Tênis Speedcat Faded Feminino Em Haute Tropic/Alpine Snow.',
+            title: 'Olympikus Ultraleve',
+            image: require('@/assets/images/ultraleve.png'),
+            description: 'R$299,29 Tênis Olympikus Ultraleve 130 G Feminino Preto / Rosa.',
           },
           {
-            title: 'Puma Park Lifestyle',
-            image: require('@/assets/images/pumapark.png'),
-            description: 'R$499,99 Puma Tênis Park Lifestyle Easy Sd BDP Em Preto.',
+            title: 'Olympikus Estilo 2',
+            image: require('@/assets/images/estilo.png'),
+            description: 'R$229,90 Tênis Olympikus Estilo 2 Feminino.',
           },
         ].map((product, index) => (
           <ThemedView key={index} style={[styles.card]}>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    backgroundColor: 'rgba(255, 255, 255, 0.15)', 
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 12,
     padding: 16,
     width: '48%',
@@ -118,12 +118,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 6,
     textAlign: 'center',
-    color: '#fff', 
+    color: '#fff',
   },
 
   productDescription: {
     fontSize: 14,
-    color: '#eee', 
+    color: '#eee',
     textAlign: 'center',
   },
 
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
-  
+ 
   backButton: {
     backgroundColor: '#7D26CD',
     paddingVertical: 10,

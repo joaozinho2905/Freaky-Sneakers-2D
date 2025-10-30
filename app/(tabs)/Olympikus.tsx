@@ -3,8 +3,11 @@ import { StyleSheet, ScrollView } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useRouter } from 'expo-router'; 
 
 export default function TabTwoScreen() {
+  const router = useRouter(); 
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
@@ -16,37 +19,45 @@ export default function TabTwoScreen() {
         />
       }
     >
+     
+      <TouchableOpacity
+        onPress={() => router.push('/categorias')}
+        style={styles.backButton}
+      >
+        <ThemedText style={styles.backButtonText}>← Voltar</ThemedText>
+      </TouchableOpacity>
+
       <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
         {[
           {
-            title: 'Puma 180 Branco/Preto',
-            image: require('@/assets/images/puma180.png'),
-            description: 'R$ 649,00 Tênis Puma-180 Em Branco/Azul Horizon',
+            title: 'Olympikus Reflect ',
+            image: require('@/assets/images/reflect.png'),
+            description: 'R$359,90 Tênis Olympikus Reflect Masculino Cinza Preto. ',
           },
           {
-            title: 'Puma Suede Xl',
-            image: require('@/assets/images/suedexl.png'),
-            description: 'R$ 549,00 - Puma para estar te auxiliando nos suas ocasiões.',
+            title: 'Olympikus Acqua',
+            image: require('@/assets/images/acqua.png'),
+            description: 'R$299,90 Tênis Olympikus Acqua Feminino.',
           },
           {
-            title: 'Puma Skyrocket',
-            image: require('@/assets/images/pumasky.png'),
-            description: 'R$332,60 Tênis Puma Skyrocket Lite Preto  .',
+            title: 'Olympikus Diffuse 5',
+            image: require('@/assets/images/diffuse.png'),
+            description: 'R$329,60 Tênis Olympikus Diffuse 5 Masculino.',
           },
           {
-            title: 'Puma Suede Classic  ',
-            image: require('@/assets/images/suedeclassic.png'),
-            description: 'R$388,90 Tênis Puma Suede Classic ECO BLACK/WHITE.',
+            title: 'Olympikus Dynamic ',
+            image: require('@/assets/images/dynamic.png'),
+            description: 'R$299,90 Tênis Masculino Olympikus Dynamic Marinho. ',
           },
           {
-            title: 'Puma Speedcat ',
-            image: require('@/assets/images/speed.png'),
-            description: 'R$799,99  Puma Tênis Speedcat Faded Feminino Em Haute Tropic/Alpine Snow.',
+            title: 'Olympikus Ultraleve ',
+            image: require('@/assets/images/ultraleve.png'),
+            description: 'R$299,29 Tênis Olympikus Ultraleve 130 G Feminino Preto / Rosa.',
           },
           {
-            title: 'Puma Park Lifestyle',
-            image: require('@/assets/images/pumapark.png'),
-            description: ' R$499,99 Puma Tênis Park Lifestyle Easy Sd BDP Em Preto.',
+            title: 'Olympikus Estilo 2',
+            image: require('@/assets/images/estilo.png'),
+            description: 'R$229,90 Tênis Olympikus Estilo 2 Feminino.',
           },
         ].map((product, index) => (
           <ThemedView key={index} style={[styles.card]}>
@@ -97,12 +108,11 @@ const styles = StyleSheet.create({
   },
 
   shoeImage: {
-    width: 200  ,
+    width: 200,
     height: 170,
     marginBottom: 12,
   },
   
-
   productTitle: {
     fontWeight: '700',
     fontSize: 16,
@@ -118,7 +128,7 @@ const styles = StyleSheet.create({
   },
 
   buyButton: {
-    backgroundColor: '#7D26CD',
+    backgroundColor: '#9C27B0',
     paddingVertical: 12,
     paddingHorizontal: 30,
     borderRadius: 30,
@@ -131,5 +141,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     textAlign: 'center',
+  },
+
+ 
+  backButton: {
+    backgroundColor: '#7D26CD',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    alignSelf: 'flex-start',
+    margin: 16,
+  },
+
+  backButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 });
