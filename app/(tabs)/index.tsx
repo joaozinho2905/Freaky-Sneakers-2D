@@ -56,12 +56,23 @@ export default function HomeScreen() {
         </View>
 
         <Text style={styles.tagline}>Veja nossas categorias.</Text>
-        <TouchableOpacity 
-          style={styles.ctaButton}
-          onPress={() => router.push('/categorias')}
-        >
-          <Text style={styles.ctaText}>Explorar</Text>
-        </TouchableOpacity>
+
+        {/* Container com os dois botões lado a lado */}
+        <View style={styles.buttonRow}>
+          <TouchableOpacity 
+            style={styles.ctaButton}
+            onPress={() => router.push('/categorias')}
+          >
+            <Text style={styles.ctaText}>Explorar</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[styles.ctaButton, styles.loginButton]}
+            onPress={() => router.push('/login')}
+          >
+            <Text style={styles.ctaText}>Entrar</Text>
+          </TouchableOpacity>
+        </View>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -137,11 +148,19 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     lineHeight: 22,
   },
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 16, // espaçamento entre os botões
+  },
   ctaButton: {
     backgroundColor: '#000',
     paddingHorizontal: 36,
     paddingVertical: 14,
     borderRadius: 30,
+  },
+  loginButton: {
+    // opcional: você pode diferenciar a cor, mas mantive igual conforme solicitado
   },
   ctaText: {
     color: '#fff',

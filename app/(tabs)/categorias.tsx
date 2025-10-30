@@ -19,6 +19,16 @@ export default function HomeScreen() {
         </View>
       }
     >
+      <View style={styles.backCard}>
+        <TouchableOpacity
+          style={styles.categoryImage}
+          onPress={() => router.push('/')}
+        >
+          <Text style={styles.backIcon}>Voltar</Text>
+        </TouchableOpacity>
+       
+      </View>
+
       <ThemedView style={styles.heroContainer}>
         <Text style={styles.slogan}>Nossas categorias</Text>
       </ThemedView>
@@ -115,5 +125,17 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '600',
     textAlign: 'center',
+  },
+
+  backCard: {
+    width: 80,
+    alignItems: 'center',
+    marginHorizontal: 8,
+    marginTop: 10, 
+  },
+  backIcon: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#000',
   },
 });

@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from "react-native";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router"; // 👈 ADICIONADO
 
 export default function CadastroScreen() {
   // Estados para armazenar dados do formulário
@@ -18,6 +19,8 @@ export default function CadastroScreen() {
   const [dia, setDia] = useState("");
   const [mes, setMes] = useState("");
   const [ano, setAno] = useState("");
+
+  const router = useRouter(); // 👈 ADICIONADO
 
   // Função chamada ao clicar em "Cadastrar"
   const handleRegister = () => {
@@ -31,6 +34,8 @@ export default function CadastroScreen() {
 
     console.log("Dados do usuário:", dadosCadastro);
     // Aqui você poderia enviar os dados para sua API
+
+    router.push("/"); // 👈 ADICIONADO: navega para a página inicial (index.tsx)
   };
 
   return (

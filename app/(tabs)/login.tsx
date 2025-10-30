@@ -1,20 +1,22 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, Linking } from "react-native";
+import { StyleSheet, View, TextInput, TouchableOpacity, Text } from "react-native";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
+  const router = useRouter();
 
   const handleLogin = () => {
-    console.log("Email:", email);
+    router.push("/cadastro");
   };
 
   const openPrivacy = () => {
-    Linking.openURL(""); //link da página de privacidade//
+    router.push("/politicaprivacidade");
   };
 
   const openTerms = () => {
-    Linking.openURL("termos.tsx"); //link da pçagina de termos//
+    router.push("/termos");
   };
 
   return (
@@ -62,8 +64,7 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-
-  //fundo
+  // fundo
   container: {
     flex: 1,
     backgroundColor: "#000",
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
-  //logo da Freaky//
+  // logo da Freaky
   logo: {
     width: 300,
     height: 120,
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     padding: 100,
   },
 
-  //inseriri email ou entrar//
+  // inserir email ou entrar
   subtitle: {
     fontSize: 18,
     color: "#fff",
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 
-//email//
+  // email
   input: {
     width: "40%",
     height: 50,
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  //botão continuar//
+  // botão continuar
   button: {
     width: "10%",
     height: 50,
@@ -113,14 +114,14 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
 
-//texto do botão//
+  // texto do botão
   buttonText: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",
   },
 
-  //ao continuar//
+  // ao continuar
   infoText: {
     color: "#ccc",
     fontSize: 14,
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     width: "80%",
   },
 
-  //termos e uso//
+  // termos e uso
   link: {
     color: "#fff",
     textDecorationLine: "underline",
