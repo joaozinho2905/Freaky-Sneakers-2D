@@ -30,34 +30,34 @@ export default function TabTwoScreen() {
       <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
         {[
           {
-            title: 'Converse Chuck Taylor   ',
-            image: require('@/assets/images/chuck.png'),
-            description: 'R$379,80 Tênis Converse Chuck Taylor All Star Vermelho.',
+            title: 'Asics GEl Terrain',
+            image: require('@/assets/images/terrain.png'),
+            description: 'R$899,90 Tênis ASICS GEL-Terrain Unissex Bege e Cinza.',
           },
           {
-            title: 'Converse All Star',
-            image: require('@/assets/images/allstar.png'),
-            description: 'R$359,90 Ct As Core Ox Converse All Star Preto/Vermelho',
+            title: 'Asics GEl Terrain',
+            image: require('@/assets/images/terrain2.png'),
+            description: 'R$899,90 Tênis ASICS GEL-TERRAIN Unisex Indigo Fog/Pure Silver ',
           },
           {
-            title: 'Converse Sport',
-            image: require('@/assets/images/sport.png'),
-            description: 'R$399,90 Tênis Adulto Converse Sport Preto.',
+            title: 'Asics Gel ',
+            image: require('@/assets/images/smokegray.png'),
+            description: 'R$799,99 Tênis Asics Gel- Nyc Smoke Grey.',
           },
           {
-            title: 'Converse All Star Plataforma   ',
-            image: require('@/assets/images/plataforma.png'),
-            description: 'R$329,90 Tênis Converse All Star Plataforma Preto Feminino.',
+            title: 'Asics NYC  ',
+            image: require('@/assets/images/NYC.png'),
+            description: 'R$889,90 Tênis Asics Gel NYC',
           },
           {
-            title: 'Converse Run Star   ',
-            image: require('@/assets/images/runstar.png'),
-            description: 'R$499,90 Tenis Converse Run Star Hike Preto/branco.',
+            title: 'Asycs Japan Pro ',
+            image: require('@/assets/images/japan.png'),
+            description: 'R$699,99 Tênis Asics Japan Pro Black/White',
           },
           {
-            title: 'Converse All Star Cano Alto',
-            image: require('@/assets/images/canoalto2.png'),
-            description: 'Tênis Converse All Star Chuck Taylor Cano Alto Juvenil ',
+            title: 'Asycs Gt-2160',
+            image: require('@/assets/images/gt2160.png'),
+            description: 'R$1,399,99 Tênis Asics GT-2160 x Above the Clouds White Pure Silver Branco.',
           },
         ].map((product, index) => (
           <ThemedView key={index} style={[styles.card]}>
