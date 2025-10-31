@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { useRouter } from 'expo-router';  
+import { useRouter } from 'expo-router';
 
 export default function TabTwoScreen() {
   const router = useRouter(); 
@@ -19,7 +19,7 @@ export default function TabTwoScreen() {
         />
       }
     >
-     
+      
       <TouchableOpacity
         onPress={() => router.push('/categorias')}
         style={styles.backButton}
@@ -30,34 +30,34 @@ export default function TabTwoScreen() {
       <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
         {[
           {
-            title: 'Olympikus Reflect ',
-            image: require('@/assets/images/reflect.png'),
-            description: 'R$359,90 Tênis Olympikus Reflect Masculino Cinza Preto. ',
+            title: 'Vans Knu Skool',
+            image: require('@/assets/images/KNU.png'),
+            description: 'R$549,90 Tênis Vans Knu Skool Navy True White - Retrô',
           },
           {
-            title: 'Olympikus Acqua',
-            image: require('@/assets/images/acqua.png'),
-            description: 'R$299,90 Tênis Olympikus Acqua Feminino.',
+            title: 'Vans Hylane',
+            image: require('@/assets/images/hylane.png'),
+            description: 'R$649,90 Tênis Hylane Black White Gum .',
           },
           {
-            title: 'Olympikus Diffuse 5',
-            image: require('@/assets/images/diffuse.png'),
-            description: 'R$329,60 Tênis Olympikus Diffuse 5 Masculino.',
+            title: 'Vans Classics Old Skoool',
+            image: require('@/assets/images/classics.png'),
+            description: 'Classics Old Skool  BLACK/WHITE 1P0S|.',
           },
           {
-            title: 'Olympikus Dynamic ',
-            image: require('@/assets/images/dynamic.png'),
-            description: 'R$299,90 Tênis Masculino Olympikus Dynamic Marinho. ',
+            title: 'Vans SK8 ',
+            image: require('@/assets/images/SK8.png'),
+            description: 'R$399,99 Tênis Vans Sk8 Hi Black',
           },
           {
-            title: 'Olympikus Ultraleve ',
-            image: require('@/assets/images/ultraleve.png'),
-            description: 'R$299,29 Tênis Olympikus Ultraleve 130 G Feminino Preto / Rosa.',
+            title: 'Vans Knu Skool',
+            image: require('@/assets/images/skool.png'),
+            description: 'R$599,90 Tênis Knu Skool Stack Black White.',
           },
           {
-            title: 'Olympikus Estilo 2',
-            image: require('@/assets/images/estilo.png'),
-            description: 'R$229,90 Tênis Olympikus Estilo 2 Feminino.',
+            title: 'Vans Skate Estazzo',
+            image: require('@/assets/images/estazzo.png'),
+            description: 'R$649,90    Tênis Vans Skate Estazzo Black/White.',
           },
         ].map((product, index) => (
           <ThemedView key={index} style={[styles.card]}>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    backgroundColor: 'rgba(255, 255, 255, 0.15)', 
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 12,
     padding: 16,
     width: '48%',
@@ -112,18 +112,18 @@ const styles = StyleSheet.create({
     height: 170,
     marginBottom: 12,
   },
-  
+
   productTitle: {
     fontWeight: '700',
     fontSize: 16,
     marginBottom: 6,
     textAlign: 'center',
-    color: '#fff', 
+    color: '#fff',
   },
 
   productDescription: {
     fontSize: 14,
-    color: '#eee', 
+    color: '#eee',
     textAlign: 'center',
   },
 

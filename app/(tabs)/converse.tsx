@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { useRouter } from 'expo-router';  
+import { useRouter } from 'expo-router';
 
 export default function TabTwoScreen() {
   const router = useRouter(); 
@@ -19,7 +19,7 @@ export default function TabTwoScreen() {
         />
       }
     >
-     
+      
       <TouchableOpacity
         onPress={() => router.push('/categorias')}
         style={styles.backButton}
@@ -30,34 +30,34 @@ export default function TabTwoScreen() {
       <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
         {[
           {
-            title: 'Olympikus Reflect ',
-            image: require('@/assets/images/reflect.png'),
-            description: 'R$359,90 Tênis Olympikus Reflect Masculino Cinza Preto. ',
+            title: 'Converse Chuck Taylor   ',
+            image: require('@/assets/images/chuck.png'),
+            description: 'R$379,80 Tênis Converse Chuck Taylor All Star Vermelho.',
           },
           {
-            title: 'Olympikus Acqua',
-            image: require('@/assets/images/acqua.png'),
-            description: 'R$299,90 Tênis Olympikus Acqua Feminino.',
+            title: 'Converse All Star',
+            image: require('@/assets/images/allstar.png'),
+            description: 'R$359,90 Ct As Core Ox Converse All Star Preto/Vermelho',
           },
           {
-            title: 'Olympikus Diffuse 5',
-            image: require('@/assets/images/diffuse.png'),
-            description: 'R$329,60 Tênis Olympikus Diffuse 5 Masculino.',
+            title: 'Converse Sport',
+            image: require('@/assets/images/sport.png'),
+            description: 'R$399,90 Tênis Adulto Converse Sport Preto.',
           },
           {
-            title: 'Olympikus Dynamic ',
-            image: require('@/assets/images/dynamic.png'),
-            description: 'R$299,90 Tênis Masculino Olympikus Dynamic Marinho. ',
+            title: 'Fila Float Maxxi    ',
+            image: require('@/assets/images/Float.png'),
+            description: 'R$559,90 Tênis Fila Float Maxxi 2 Masculino Azul / Preto.',
           },
           {
-            title: 'Olympikus Ultraleve ',
-            image: require('@/assets/images/ultraleve.png'),
-            description: 'R$299,29 Tênis Olympikus Ultraleve 130 G Feminino Preto / Rosa.',
+            title: 'Fila Cano Alto',
+            image: require('@/assets/images/canoalto.png'),
+            description: 'R$399,90 Tênis Branco Cano Alto Unisex M-Squad.',
           },
           {
-            title: 'Olympikus Estilo 2',
-            image: require('@/assets/images/estilo.png'),
-            description: 'R$229,90 Tênis Olympikus Estilo 2 Feminino.',
+            title: 'Fila Tormo Classic',
+            image: require('@/assets/images/tormo.png'),
+            description: 'R$299,90 Tênis Fila Tormo Classic - Polissport.',
           },
         ].map((product, index) => (
           <ThemedView key={index} style={[styles.card]}>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    backgroundColor: 'rgba(255, 255, 255, 0.15)', 
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 12,
     padding: 16,
     width: '48%',
@@ -112,18 +112,18 @@ const styles = StyleSheet.create({
     height: 170,
     marginBottom: 12,
   },
-  
+
   productTitle: {
     fontWeight: '700',
     fontSize: 16,
     marginBottom: 6,
     textAlign: 'center',
-    color: '#fff', 
+    color: '#fff',
   },
 
   productDescription: {
     fontSize: 14,
-    color: '#eee', 
+    color: '#eee',
     textAlign: 'center',
   },
 

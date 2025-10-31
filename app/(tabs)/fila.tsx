@@ -40,24 +40,24 @@ export default function TabTwoScreen() {
             description: 'R$249,90 Tênis Fila Progress Lite Masculino em Promoção.',
           },
           {
-            title: 'Olympikus Diffuse 5',
-            image: require('@/assets/images/diffuse.png'),
-            description: 'R$329,60 Tênis Olympikus Diffuse 5 Masculino.',
+            title: 'Fila ACD Classic',
+            image: require('@/assets/images/ACD.png'),
+            description: 'R$229,29 Tênis FILA ACD Classic Feminino Branco e Azul.',
           },
           {
-            title: 'Olympikus Dynamic',
-            image: require('@/assets/images/dynamic.png'),
-            description: 'R$299,90 Tênis Masculino Olympikus Dynamic Marinho.',
+            title: 'Fila Float Maxxi    ',
+            image: require('@/assets/images/Float.png'),
+            description: 'R$559,90 Tênis Fila Float Maxxi 2 Masculino Azul / Preto.',
           },
           {
-            title: 'Olympikus Ultraleve',
-            image: require('@/assets/images/ultraleve.png'),
-            description: 'R$299,29 Tênis Olympikus Ultraleve 130 G Feminino Preto / Rosa.',
+            title: 'Fila Cano Alto',
+            image: require('@/assets/images/canoalto.png'),
+            description: 'R$399,90 Tênis Branco Cano Alto Unisex M-Squad.',
           },
           {
-            title: 'Olympikus Estilo 2',
-            image: require('@/assets/images/estilo.png'),
-            description: 'R$229,90 Tênis Olympikus Estilo 2 Feminino.',
+            title: 'Fila Tormo Classic',
+            image: require('@/assets/images/tormo.png'),
+            description: 'R$299,90 Tênis Fila Tormo Classic - Polissport.',
           },
         ].map((product, index) => (
           <ThemedView key={index} style={[styles.card]}>
