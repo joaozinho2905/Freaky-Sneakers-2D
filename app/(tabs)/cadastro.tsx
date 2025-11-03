@@ -8,10 +8,9 @@ import {
   ScrollView,
 } from "react-native";
 import { Image } from "expo-image";
-import { useRouter } from "expo-router"; // 👈 ADICIONADO
+import { useRouter } from "expo-router";
 
 export default function CadastroScreen() {
-  // Estados para armazenar dados do formulário
   const [codigo, setCodigo] = useState("");
   const [nome, setNome] = useState("");
   const [sobrenome, setSobrenome] = useState("");
@@ -20,9 +19,8 @@ export default function CadastroScreen() {
   const [mes, setMes] = useState("");
   const [ano, setAno] = useState("");
 
-  const router = useRouter(); // 👈 ADICIONADO
+  const router = useRouter();
 
-  // Função chamada ao clicar em "Cadastrar"
   const handleRegister = () => {
     const dadosCadastro = {
       codigo,
@@ -33,20 +31,16 @@ export default function CadastroScreen() {
     };
 
     console.log("Dados do usuário:", dadosCadastro);
-    // Aqui você poderia enviar os dados para sua API
-
-    router.push("/"); // 👈 ADICIONADO: navega para a página inicial (index.tsx)
+    router.push("/");
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Logo */}
       <Image
         source={require("@/assets/images/freaky.png")}
         style={styles.logo}
       />
 
-      {/* Título e subtítulo */}
       <Text style={styles.title}>
         Agora, vamos fazer de você um membro da Freaky Sneakers.
       </Text>
@@ -54,7 +48,6 @@ export default function CadastroScreen() {
         Enviamos um código para seu e-mail cadastrado
       </Text>
 
-      {/* Campo de código */}
       <TextInput
         style={styles.input}
         placeholder="Código*"
@@ -63,7 +56,6 @@ export default function CadastroScreen() {
         onChangeText={setCodigo}
       />
 
-      {/* Nome e Sobrenome lado a lado */}
       <View style={styles.row}>
         <TextInput
           style={[styles.input, styles.inputHalf]}
@@ -81,7 +73,6 @@ export default function CadastroScreen() {
         />
       </View>
 
-      {/* Campo de senha */}
       <TextInput
         style={styles.input}
         placeholder="Senha*"
@@ -91,14 +82,12 @@ export default function CadastroScreen() {
         onChangeText={setSenha}
       />
 
-      {/* Regras de senha */}
       <Text style={styles.passwordRules}>
         • Mínimo de 8 caracteres {"\n"}
         • Deve conter letras maiúsculas, minúsculas e um número
       </Text>
 
-      {/* Data de nascimento */}
-      <Text style={styles.label}>Data de nascimento</Text>
+      <Text style={styles.label}>Data de Nascimento</Text>
       <View style={styles.row}>
         <TextInput
           style={[styles.input, styles.inputThird]}
@@ -126,7 +115,6 @@ export default function CadastroScreen() {
         />
       </View>
 
-      {/* Botão de cadastro */}
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text style={styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
@@ -140,37 +128,33 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     alignItems: "center",
     padding: 20,
+    paddingBottom: 40,
   },
-
-  // Logo
   logo: {
-    width: 150,
-    height: 80,
-    marginBottom: 20,
+    width: 180,
+    height: 90,
+    marginBottom: 25,
     resizeMode: "contain",
   },
-
-  // Textos principais
   title: {
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    marginBottom: 10,
     color: "#fff",
+    marginBottom: 10,
+    width: "90%",
   },
   subtitle: {
     fontSize: 14,
     textAlign: "center",
-    marginBottom: 20,
     color: "#fff",
+    marginBottom: 20,
+    width: "90%",
   },
-
-  // Inputs
   input: {
     width: "90%",
+    maxWidth: 400,
     height: 50,
-    borderWidth: 1,
-    borderColor: "#000",
     borderRadius: 8,
     paddingHorizontal: 12,
     fontSize: 16,
@@ -181,6 +165,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: "90%",
+    maxWidth: 400,
   },
   inputHalf: {
     width: "48%",
@@ -188,36 +173,33 @@ const styles = StyleSheet.create({
   inputThird: {
     width: "30%",
   },
-
-  //regras da senha
   passwordRules: {
     fontSize: 12,
     color: "#fff",
     textAlign: "left",
     width: "90%",
+    maxWidth: 400,
     marginBottom: 20,
   },
-
-  //data de nascimento
   label: {
-    fontSize: 14,
-    fontWeight: "bold",
-    alignSelf: "flex-start",
-    marginLeft: "5%",
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#fff",
+    textAlign: "center", 
+    width: "100%",
+    marginTop: 5,
     marginBottom: 10,
-    color: "#000",
   },
-
-  // Botão
+  
   button: {
-    width: "20%",
+    width: "90%",
+    maxWidth: 400,
     height: 50,
     backgroundColor: "#7D26CD",
     borderRadius: 25,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
-    marginLeft: 700,
+    marginTop: 25,
   },
   buttonText: {
     color: "#fff",

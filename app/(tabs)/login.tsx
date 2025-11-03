@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TextInput, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, Dimensions } from "react-native";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 
@@ -70,48 +70,46 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
-    padding: 20,
+    paddingHorizontal: 20,
   },
 
   // logo da Freaky
   logo: {
-    width: 300,
-    height: 120,
-    marginBottom: 20,
+    width: 250,
+    height: 100,
+    marginBottom: 30,
     resizeMode: "contain",
-    padding: 100,
   },
 
   // inserir email ou entrar
   subtitle: {
     fontSize: 18,
     color: "#fff",
-    marginBottom: 8,
     textAlign: "center",
   },
 
   // email
   input: {
-    width: "40%",
+    width: "90%",
+    maxWidth: 400,
     height: 50,
     backgroundColor: "#fff",
     borderRadius: 8,
     paddingHorizontal: 15,
-    marginBottom: 15,
+    marginTop: 20,
     fontSize: 16,
   },
 
   // botão continuar
   button: {
-    width: "10%",
+    width: "90%",
+    maxWidth: 400,
     height: 50,
     backgroundColor: "#7D26CD",
     borderRadius: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 10,
-    marginLeft: 350,
-    marginBottom: 30,
+    marginTop: 15,
   },
 
   // texto do botão
@@ -126,8 +124,8 @@ const styles = StyleSheet.create({
     color: "#ccc",
     fontSize: 14,
     textAlign: "center",
-    marginTop: 20,
-    width: "80%",
+    marginTop: 30,
+    width: "85%",
   },
 
   // termos e uso
