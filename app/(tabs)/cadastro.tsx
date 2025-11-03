@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     width: "90%",
   },
   input: {
-    width: "90%",
+    width: "91%",
     maxWidth: 400,
     height: 50,
     borderRadius: 8,
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   },
   
   button: {
-    width: "90%",
+    width: "100%",
     maxWidth: 400,
     height: 50,
     backgroundColor: "#7D26CD",
