@@ -1,7 +1,6 @@
 # O que é nosso site
 Nosso site é um e-commerce inspirado na Nike, criado para oferecer uma experiência simples e moderna na compra de tênis. Nele, o usuário pode navegar por diferentes modelos, cores e tamanhos, com fotos e descrições detalhadas de cada produto. Facilitando a busca pelo tênis ideal. Além disso, o site conta com um carrinho de compras prático, garantindo conforto e confiança na compra
 
-<img width="282" height="596" alt="image" src="https://github.com/user-attachments/assets/4d1178cf-31f3-4600-87c5-88f7ed8872f6" />
 <img width="283" height="613" alt="image" src="https://github.com/user-attachments/assets/a84c4477-018c-4348-b893-0e47e41ad598" />
 <img width="263" height="573" alt="image" src="https://github.com/user-attachments/assets/d1ca4a33-a7b8-4fa2-a43f-9dd446a924c0" />
 <img width="282" height="586" alt="image" src="https://github.com/user-attachments/assets/8112fb0c-5772-4bce-b2cb-6ef5073ad67e" />
