@@ -11,5 +11,6 @@ Nosso site é um e-commerce inspirado na Nike, criado para oferecer uma experiê
 <img width="278" height="602" alt="image" src="https://github.com/user-attachments/assets/5b2ba094-2c9c-4525-8a66-93516a10d2d1" />
 <img width="274" height="583" alt="image" src="https://github.com/user-attachments/assets/e2c62268-6b1e-4c87-a7da-83535534c0e8" />
 <img width="283" height="597" alt="image" src="https://github.com/user-attachments/assets/46cf2fc6-550d-498a-be22-29d703c392ca" />
+<img width="278" height="582" alt="image" src="https://github.com/user-attachments/assets/15a43f19-9ebd-401f-ad9b-117cbd137864" />
 
 
