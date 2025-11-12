@@ -1,5 +1,5 @@
-import { Image, TouchableOpacity } from 'react-native';
-import { StyleSheet, ScrollView } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, ScrollView, useWindowDimensions } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -7,6 +7,8 @@ import { useRouter } from 'expo-router';
 
 export default function TabTwoScreen() {
   const router = useRouter(); 
+  const { width } = useWindowDimensions();
+  const isSmallScreen = width < 400; // 1 coluna em telas pequenas
 
   return (
     <ParallaxScrollView
@@ -19,7 +21,7 @@ export default function TabTwoScreen() {
         />
       }
     >
-      
+      {/* Botão de Voltar */}
       <TouchableOpacity
         onPress={() => router.push('/categorias')}
         style={styles.backButton}
@@ -27,48 +29,62 @@ export default function TabTwoScreen() {
         <ThemedText style={styles.backButtonText}>← Voltar</ThemedText>
       </TouchableOpacity>
 
+      {/* Cards de Produtos */}
       <ScrollView
-        contentContainerStyle={styles.cardsWrapper}
+        contentContainerStyle={[
+          styles.cardsWrapper,
+          { flexDirection: isSmallScreen ? 'column' : 'row' },
+        ]}
         showsVerticalScrollIndicator={false}
       >
         {[
           {
             title: 'Nike Air Max 90',
             image: require('@/assets/images/airmax90.png'),
-            description: 'R$712,90 Tênis Nike Air Max 90 Masculino ',
+            description: 'R$712,90 Tênis Nike Air Max 90 Masculino.',
           },
           {
             title: 'Air Force 1',
             image: require('@/assets/images/AirForce1.png'),
-            description: 'R$ 549,00 - Ideal para corrida, com amortecimento responsivo.',
+            description: 'R$549,00 Ideal para corrida, com amortecimento responsivo.',
           },
           {
             title: 'Air Max TN',
             image: require('@/assets/images/AirMaxTN.png'),
-            description: 'R$ 664,00 - Conforto e estilo para o seu dia a dia.',
+            description: 'R$664,00 Conforto e estilo para o seu dia a dia.',
           },
           {
             title: 'Air Court Vision',
             image: require('@/assets/images/CourtVision.png'),
-            description: 'R$649,90 Tênis Nike Air Max DN perfeito para ocasiões especiais.',
+            description: 'R$649,90 Tênis Nike Air Max DN para ocasiões especiais.',
           },
           {
             title: 'Nike Dunk Low Preto',
             image: require('@/assets/images/Nikedunk.png'),
-            description: 'R$699,90 Nike Dunk low preto, feito para seu rolê de semana.',
+            description: 'R$699,90 Nike Dunk Low Preto, feito para seu rolê de semana.',
           },
           {
             title: 'Nike Air Max DN',
             image: require('@/assets/images/NikeDN.png'),
-            description: 'R$1,324,90  Tênis Air Max DN.',
+            description: 'R$1.324,90 Tenis Nike Air Max DN SE Masculino.',
           },
         ].map((product, index) => (
-          <ThemedView key={index} style={[styles.card]}>
-            <Image source={product.image} style={styles.shoeImage} resizeMode="contain" />
+          <ThemedView
+            key={index}
+            style={[styles.card, { width: isSmallScreen ? '90%' : '48%' }]}
+          >
+            <View style={styles.imageContainer}>
+              <Image source={product.image} style={styles.shoeImage} resizeMode="contain" />
+            </View>
+
             <ThemedText type="subtitle" style={styles.productTitle}>
               {product.title}
             </ThemedText>
-            <ThemedText style={styles.productDescription}>{product.description}</ThemedText>
+
+            <ThemedText style={styles.productDescription}>
+              {product.description}
+            </ThemedText>
+
             <TouchableOpacity style={styles.buyButton}>
               <ThemedText style={styles.buttonText}>Comprar</ThemedText>
             </TouchableOpacity>
@@ -81,11 +97,10 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   cardsWrapper: {
-    flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 24,
+    paddingBottom: 24,
   },
 
   logo: {
@@ -100,20 +115,27 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 12,
     padding: 16,
-    width: '48%',
-    marginBottom: 24,
+    marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.1,
     shadowRadius: 6,
     elevation: 4,
     alignItems: 'center',
+    overflow: 'hidden',
+  },
+
+  imageContainer: {
+    width: '100%',
+    height: 140,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
   },
 
   shoeImage: {
-    width: 180,
-    height: 150,
-    marginBottom: 12,
+    width: '90%',
+    height: '100%',
   },
 
   productTitle: {
@@ -131,12 +153,11 @@ const styles = StyleSheet.create({
   },
 
   buyButton: {
-    backgroundColor: "#9C27B0",
+    backgroundColor: '#9C27B0',
     paddingVertical: 12,
-    paddingHorizontal: 30,
     borderRadius: 30,
     marginTop: 16,
-    alignSelf: 'stretch',
+    width: '80%',
   },
 
   buttonText: {
@@ -146,7 +167,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
-  
   backButton: {
     backgroundColor: '#7D26CD',
     paddingVertical: 10,
@@ -159,6 +179,6 @@ const styles = StyleSheet.create({
   backButtonText: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 16, 
+    fontSize: 16,
   },
 });

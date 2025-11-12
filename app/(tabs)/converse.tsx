@@ -1,5 +1,5 @@
-import { Image, TouchableOpacity } from 'react-native';
-import { StyleSheet, ScrollView } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, ScrollView, useWindowDimensions } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -7,6 +7,8 @@ import { useRouter } from 'expo-router';
 
 export default function TabTwoScreen() {
   const router = useRouter(); 
+  const { width } = useWindowDimensions();
+  const isSmallScreen = width < 400; // detecta telas pequenas
 
   return (
     <ParallaxScrollView
@@ -19,7 +21,6 @@ export default function TabTwoScreen() {
         />
       }
     >
-      
       <TouchableOpacity
         onPress={() => router.push('/categorias')}
         style={styles.backButton}
@@ -27,17 +28,23 @@ export default function TabTwoScreen() {
         <ThemedText style={styles.backButtonText}>← Voltar</ThemedText>
       </TouchableOpacity>
 
-      <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={[
+          styles.cardsWrapper,
+          { flexDirection: isSmallScreen ? 'column' : 'row' },
+        ]}
+        showsVerticalScrollIndicator={false}
+      >
         {[
           {
-            title: 'Converse Chuck Taylor   ',
+            title: 'Converse Chuck Taylor',
             image: require('@/assets/images/chuck.png'),
             description: 'R$379,80 Tênis Converse Chuck Taylor All Star Vermelho.',
           },
           {
             title: 'Converse All Star',
             image: require('@/assets/images/allstar.png'),
-            description: 'R$359,90 Ct As Core Ox Converse All Star Preto/Vermelho',
+            description: 'R$359,90 Ct As Core Ox Converse All Star Preto/Vermelho.',
           },
           {
             title: 'Converse Sport',
@@ -45,27 +52,38 @@ export default function TabTwoScreen() {
             description: 'R$399,90 Tênis Adulto Converse Sport Preto.',
           },
           {
-            title: 'Converse All Star Plataforma   ',
+            title: 'Converse All Star Plataforma',
             image: require('@/assets/images/plataforma.png'),
             description: 'R$329,90 Tênis Converse All Star Plataforma Preto Feminino.',
           },
           {
-            title: 'Converse Run Star   ',
+            title: 'Converse Run Star',
             image: require('@/assets/images/runstar.png'),
-            description: 'R$499,90 Tenis Converse Run Star Hike Preto/branco.',
+            description: 'R$499,90 Tênis Converse Run Star Hike Preto/Branco.',
           },
           {
             title: 'Converse All Star Cano Alto',
             image: require('@/assets/images/canoalto2.png'),
-            description: 'Tênis Converse All Star Chuck Taylor Cano Alto Juvenil ',
+            description: 'R$369,90 Tênis Converse All Star Chuck Taylor Cano Alto Juvenil.',
           },
         ].map((product, index) => (
-          <ThemedView key={index} style={[styles.card]}>
-            <Image source={product.image} style={styles.shoeImage} resizeMode="contain" />
+          <ThemedView
+            key={index}
+            style={[
+              styles.card,
+              { width: isSmallScreen ? '90%' : '48%' },
+            ]}
+          >
+            <View style={styles.imageContainer}>
+              <Image source={product.image} style={styles.shoeImage} resizeMode="contain" />
+            </View>
+
             <ThemedText type="subtitle" style={styles.productTitle}>
               {product.title}
             </ThemedText>
+
             <ThemedText style={styles.productDescription}>{product.description}</ThemedText>
+
             <TouchableOpacity style={styles.buyButton}>
               <ThemedText style={styles.buttonText}>Comprar</ThemedText>
             </TouchableOpacity>
@@ -78,11 +96,10 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   cardsWrapper: {
-    flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 24,
+    paddingBottom: 24,
   },
 
   logo: {
@@ -97,20 +114,27 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 12,
     padding: 16,
-    width: '48%',
-    marginBottom: 24,
+    marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.1,
     shadowRadius: 6,
     elevation: 4,
     alignItems: 'center',
+    overflow: 'hidden', // evita imagem sair do card
+  },
+
+  imageContainer: {
+    width: '100%',
+    height: 140, // altura fixa que mantém proporção visual consistente
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
   },
 
   shoeImage: {
-    width: 200,
-    height: 170,
-    marginBottom: 12,
+    width: '90%',
+    height: '100%',
   },
 
   productTitle: {
@@ -130,10 +154,9 @@ const styles = StyleSheet.create({
   buyButton: {
     backgroundColor: '#9C27B0',
     paddingVertical: 12,
-    paddingHorizontal: 30,
     borderRadius: 30,
     marginTop: 16,
-    alignSelf: 'stretch',
+    width: '80%',
   },
 
   buttonText: {
@@ -143,7 +166,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
- 
   backButton: {
     backgroundColor: '#7D26CD',
     paddingVertical: 10,

@@ -1,12 +1,14 @@
 import { Image, TouchableOpacity } from 'react-native';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, useWindowDimensions, View } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useRouter } from 'expo-router';  
 
 export default function TabTwoScreen() {
-  const router = useRouter(); 
+  const router = useRouter();  
+  const { width } = useWindowDimensions();
+  const isSmallScreen = width < 400; // define quando muda para 1 coluna
 
   return (
     <ParallaxScrollView
@@ -19,7 +21,6 @@ export default function TabTwoScreen() {
         />
       }
     >
-     
       <TouchableOpacity
         onPress={() => router.push('/categorias')}
         style={styles.backButton}
@@ -27,12 +28,18 @@ export default function TabTwoScreen() {
         <ThemedText style={styles.backButtonText}>← Voltar</ThemedText>
       </TouchableOpacity>
 
-      <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={[
+          styles.cardsWrapper,
+          { flexDirection: isSmallScreen ? 'column' : 'row' },
+        ]}
+        showsVerticalScrollIndicator={false}
+      >
         {[
           {
-            title: 'Olympikus Reflect ',
+            title: 'Olympikus Reflect',
             image: require('@/assets/images/reflect.png'),
-            description: 'R$359,90 Tênis Olympikus Reflect Masculino Cinza Preto. ',
+            description: 'R$359,90 Tênis Olympikus Reflect Masculino Cinza Preto.',
           },
           {
             title: 'Olympikus Acqua',
@@ -45,12 +52,12 @@ export default function TabTwoScreen() {
             description: 'R$329,60 Tênis Olympikus Diffuse 5 Masculino.',
           },
           {
-            title: 'Olympikus Dynamic ',
+            title: 'Olympikus Dynamic',
             image: require('@/assets/images/dynamic.png'),
-            description: 'R$299,90 Tênis Masculino Olympikus Dynamic Marinho. ',
+            description: 'R$299,90 Tênis Masculino Olympikus Dynamic Marinho.',
           },
           {
-            title: 'Olympikus Ultraleve ',
+            title: 'Olympikus Ultraleve',
             image: require('@/assets/images/ultraleve.png'),
             description: 'R$299,29 Tênis Olympikus Ultraleve 130 G Feminino Preto / Rosa.',
           },
@@ -60,8 +67,16 @@ export default function TabTwoScreen() {
             description: 'R$229,90 Tênis Olympikus Estilo 2 Feminino.',
           },
         ].map((product, index) => (
-          <ThemedView key={index} style={[styles.card]}>
-            <Image source={product.image} style={styles.shoeImage} resizeMode="contain" />
+          <ThemedView
+            key={index}
+            style={[
+              styles.card,
+              { width: isSmallScreen ? '90%' : '48%' },
+            ]}
+          >
+            <View style={styles.imageContainer}>
+              <Image source={product.image} style={styles.shoeImage} resizeMode="contain" />
+            </View>
             <ThemedText type="subtitle" style={styles.productTitle}>
               {product.title}
             </ThemedText>
@@ -78,11 +93,10 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   cardsWrapper: {
-    flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 24,
+    paddingBottom: 24,
   },
 
   logo: {
@@ -94,46 +108,52 @@ const styles = StyleSheet.create({
   },
 
   card: {
-    backgroundColor: 'rgba(255, 255, 255, 0.15)', 
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 12,
     padding: 16,
-    width: '48%',
-    marginBottom: 24,
+    marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.1,
     shadowRadius: 6,
     elevation: 4,
     alignItems: 'center',
+    overflow: 'hidden',
+  },
+
+  imageContainer: {
+    width: '100%',
+    height: 140, // altura fixa agradável e consistente
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
   },
 
   shoeImage: {
-    width: 200,
-    height: 170,
-    marginBottom: 12,
+    width: '90%',
+    height: '100%',
   },
-  
+
   productTitle: {
     fontWeight: '700',
     fontSize: 16,
     marginBottom: 6,
     textAlign: 'center',
-    color: '#fff', 
+    color: '#fff',
   },
 
   productDescription: {
     fontSize: 14,
-    color: '#eee', 
+    color: '#eee',
     textAlign: 'center',
   },
 
   buyButton: {
     backgroundColor: '#9C27B0',
     paddingVertical: 12,
-    paddingHorizontal: 30,
     borderRadius: 30,
     marginTop: 16,
-    alignSelf: 'stretch',
+    width: '80%',
   },
 
   buttonText: {
@@ -143,7 +163,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
- 
   backButton: {
     backgroundColor: '#7D26CD',
     paddingVertical: 10,

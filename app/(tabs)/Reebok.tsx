@@ -1,12 +1,14 @@
-import { Image, TouchableOpacity } from 'react-native';
-import { StyleSheet, ScrollView } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, ScrollView, useWindowDimensions } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useRouter } from 'expo-router';
 
 export default function TabTwoScreen() {
-  const router = useRouter(); 
+  const router = useRouter();
+  const { width } = useWindowDimensions();
+  const isSmallScreen = width < 400; // Responsividade: 1 coluna em telas pequenas
 
   return (
     <ParallaxScrollView
@@ -19,7 +21,7 @@ export default function TabTwoScreen() {
         />
       }
     >
-      
+      {/* Botão Voltar */}
       <TouchableOpacity
         onPress={() => router.push('/categorias')}
         style={styles.backButton}
@@ -27,45 +29,60 @@ export default function TabTwoScreen() {
         <ThemedText style={styles.backButtonText}>← Voltar</ThemedText>
       </TouchableOpacity>
 
-      <ScrollView contentContainerStyle={styles.cardsWrapper} showsVerticalScrollIndicator={false}>
+      {/* Cards de Produtos */}
+      <ScrollView
+        contentContainerStyle={[
+          styles.cardsWrapper,
+          { flexDirection: isSmallScreen ? 'column' : 'row' },
+        ]}
+        showsVerticalScrollIndicator={false}
+      >
         {[
           {
             title: 'Reebok Classic',
             image: require('@/assets/images/reebok.png'),
             description: 'R$699,90 Tênis Reebok Classic Branco e Vermelho.',
           },
-          {     
+          {
             title: 'Reebok Classic Leather',
             image: require('@/assets/images/classicreebok.png'),
-            description: 'R$449,59 Tênis Reebok Classic Leather Masculino. ',
+            description: 'R$449,59 Tênis Reebok Classic Leather Masculino.',
           },
           {
-            title: 'Asics Gel ',
+            title: 'Asics Gel Smoke Grey',
             image: require('@/assets/images/smokegray.png'),
-            description: 'R$799,99 Tênis Asics Gel- Nyc Smoke Grey.',
+            description: 'R$799,99 Tênis Asics Gel-NYC Smoke Grey.',
           },
           {
-            title: 'Asics NYC  ',
+            title: 'Asics NYC',
             image: require('@/assets/images/NYC.png'),
-            description: 'R$889,90 Tênis Asics Gel NYC',
+            description: 'R$889,90 Tênis Asics Gel NYC.',
           },
           {
-            title: 'Asycs Japan Pro ',
+            title: 'Asics Japan Pro',
             image: require('@/assets/images/japan.png'),
-            description: 'R$699,99 Tênis Asics Japan Pro Black/White',
+            description: 'R$699,99 Tênis Asics Japan Pro Black/White.',
           },
           {
-            title: 'Asycs Gt-2160',
+            title: 'Asics GT-2160',
             image: require('@/assets/images/gt2160.png'),
-            description: 'R$1,399,99 Tênis Asics GT-2160 x Above the Clouds White Pure Silver Branco.',
+            description: 'R$1.399,99 Tênis Asics GT-2160 x Above the Clouds White Pure Silver Branco.',
           },
         ].map((product, index) => (
-          <ThemedView key={index} style={[styles.card]}>
-            <Image source={product.image} style={styles.shoeImage} resizeMode="contain" />
+          <ThemedView
+            key={index}
+            style={[styles.card, { width: isSmallScreen ? '90%' : '48%' }]}
+          >
+            <View style={styles.imageContainer}>
+              <Image source={product.image} style={styles.shoeImage} resizeMode="contain" />
+            </View>
+
             <ThemedText type="subtitle" style={styles.productTitle}>
               {product.title}
             </ThemedText>
+
             <ThemedText style={styles.productDescription}>{product.description}</ThemedText>
+
             <TouchableOpacity style={styles.buyButton}>
               <ThemedText style={styles.buttonText}>Comprar</ThemedText>
             </TouchableOpacity>
@@ -78,11 +95,10 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   cardsWrapper: {
-    flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    paddingVertical: 24,
+    paddingBottom: 24,
   },
 
   logo: {
@@ -97,20 +113,27 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.15)',
     borderRadius: 12,
     padding: 16,
-    width: '48%',
-    marginBottom: 24,
+    marginBottom: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.1,
     shadowRadius: 6,
     elevation: 4,
     alignItems: 'center',
+    overflow: 'hidden', // impede que a imagem ultrapasse o card
+  },
+
+  imageContainer: {
+    width: '100%',
+    height: 140,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
   },
 
   shoeImage: {
-    width: 200,
-    height: 170,
-    marginBottom: 12,
+    width: '90%',
+    height: '100%',
   },
 
   productTitle: {
@@ -130,10 +153,9 @@ const styles = StyleSheet.create({
   buyButton: {
     backgroundColor: '#9C27B0',
     paddingVertical: 12,
-    paddingHorizontal: 30,
     borderRadius: 30,
     marginTop: 16,
-    alignSelf: 'stretch',
+    width: '80%',
   },
 
   buttonText: {
@@ -143,7 +165,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
- 
   backButton: {
     backgroundColor: '#7D26CD',
     paddingVertical: 10,
