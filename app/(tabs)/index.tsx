@@ -51,7 +51,7 @@ export default function HomeScreen() {
           />
 
           <TouchableOpacity onPress={nextImage} style={styles.arrowButtonRight}>
-            <Text style={styles.arrowText}>›</Text>
+            <Text style={styles.arrowText}></Text>
           </TouchableOpacity>
         </View>
 

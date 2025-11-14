@@ -12,7 +12,7 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#7D26CD', dark: '#7D26CD' }}
       headerImage={
         <View style={styles.logoContainer}>
-          <Image
+          <Image 
             source={require('@/assets/images/freaky.png')}
             style={styles.logo}
           />
